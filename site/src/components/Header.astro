@@ -1,0 +1,85 @@
+---
+/**
+ * Site header — sticky, logo + nav + language switcher.
+ *
+ * Anti-pattern enforced: NO Get-Quote button in header. The page itself
+ * drives the user to the RFQ form section. Departure from competitor norm
+ * is intentional (see brand bible anti-patterns).
+ *
+ * Language switcher is plain links to the other locale's root. Astro pages
+ * at `/` and `/zh-cn/` carry the per-locale state — no React island needed
+ * just for the toggle.
+ */
+import Logo from './Logo.astro';
+import { shared, type Locale } from '../i18n/dict';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = shared[locale];
+const otherHref = locale === 'en' ? '/zh-cn' : '/';
+const base = locale === 'en' ? '/' : '/zh-cn';
+
+const navItems = [
+  { href: `${base}#brand-wall`, label: t.nav.brands },
+  { href: `${base}#categories`, label: t.nav.categories },
+  { href: `${base}#industries`, label: t.nav.applications },
+  { href: `${base}#how-it-works`, label: t.nav.howItWorks },
+  { href: `${base}#global-supply`, label: t.nav.globalSupply },
+  { href: `${base}#quick-rfq`, label: t.nav.rfq },
+];
+---
+
+<div class="topstrip">
+  <div class="wrap">
+    {t.strip.map((s, i) => (
+      <Fragment>
+        {i > 0 && <span class="topstrip-dot" aria-hidden="true">·</span>}
+        <span>{s}</span>
+      </Fragment>
+    ))}
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href={base} aria-label="AxisParts home">
+      <Logo />
+    </a>
+    <div class="head-right">
+      <a class="lang" href={otherHref} aria-label="Switch language">
+        <b style={locale === 'en' ? '' : 'color:var(--text-muted);font-weight:400;'}>EN</b>
+        <span class="bar">|</span>
+        <b style={locale === 'zh-CN' ? '' : 'color:var(--text-muted);font-weight:400;'}>简体中文</b>
+      </a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Main navigation">
+    {navItems.map((n) => <a href={n.href}>{n.label}</a>)}
+  </nav>
+</header>
+
+<script is:inline>
+  (() => {
+    const head = document.querySelector('.site-head');
+    const btn = head?.querySelector('.nav-toggle');
+    const nav = document.getElementById('mobile-nav');
+    if (!head || !btn || !nav) return;
+    const close = () => {
+      head.classList.remove('nav-open');
+      btn.setAttribute('aria-expanded', 'false');
+    };
+    btn.addEventListener('click', () => {
+      const open = head.classList.toggle('nav-open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+  })();
+</script>

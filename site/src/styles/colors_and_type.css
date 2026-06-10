@@ -1,0 +1,125 @@
+/* ============================================================
+   AxisParts — Colors & Type tokens
+   Direction B "Asian Trade Authority"
+   Canonical source: axisparts-design-system-v1-FINAL.html
+   Import order:  @import 'fonts.css'  then this file.
+   From a subfolder use ../colors_and_type.css — @font-face url()s
+   resolve relative to fonts.css at the project root, so they hold.
+   ============================================================ */
+@import url('fonts.css');
+
+:root{
+  /* ── Surface ── */
+  --bg-page:#FFFFFF;          /* 70% — default surface              */
+  --bg-soft:#F7F8FA;          /* alternating soft section, sparingly */
+  --bg-navy:#003D7A;          /* 25% — the brand color               */
+  --bg-navy-deep:#002A52;     /* deeper variant, footer only if needed */
+  --bg-ink:#1A1A1A;           /* avoid — navy preferred over ink     */
+
+  /* ── Text ── */
+  --text-primary:#1A1A1A;     /* default text on light               */
+  --text-on-navy:#FFFFFF;     /* default text on navy                */
+  --text-muted:#6B7280;       /* secondary text on light             */
+  --text-on-navy-2:rgba(255,255,255,0.70); /* secondary text on navy */
+
+  /* ── Accent (gold ≈ 4%, rules + eyebrows ONLY, never a fill) ── */
+  --accent-gold:#FFC107;          /* canonical — on navy             */
+  --accent-gold-on-light:#B8860B; /* contrast variant — eyebrows on light */
+  --accent-gold-hover:#E0A800;    /* rare hover for gold elements    */
+
+  /* ── CTA (red ≈ 1%, exactly ONE button per view) ── */
+  --cta-red:#DC2626;
+  --cta-red-hover:#B91C1C;
+  --cta-red-active:#991B1B;
+
+  /* ── Border ── */
+  --border-line:#E5E7EB;
+  --border-line-on-navy:rgba(255,255,255,0.10);
+
+  /* ── Status (small text only, never a fill) ── */
+  --status-success:#16A34A;
+  --status-error:#DC2626;     /* reuses CTA red */
+  --status-warning:#F59E0B;   /* rare */
+
+  /* ── Font families (IBM Plex Sans SC chained in for 简体中文 / CJK) ── */
+  --font-display:'IBM Plex Serif','IBM Plex Sans SC','Georgia',serif;
+  --font-body:'IBM Plex Sans','IBM Plex Sans SC',system-ui,-apple-system,sans-serif;
+  --font-mono:'IBM Plex Mono','IBM Plex Sans SC','SFMono-Regular',ui-monospace,monospace;
+
+  /* ── Display scale (IBM Plex Serif) ── */
+  --display-1:96px;  /* 700 / 1.05 / -0.02em · ≤4-word headlines only */
+  --display-2:72px;  /* 700 / 1.10 / -0.02em · hero default          */
+  --display-3:56px;  /* 600 / 1.15 / -0.015em                        */
+  --display-4:40px;  /* 600 / 1.20 / -0.01em · feature numbers       */
+  /* ── Heading ── */
+  --heading-1:32px;  /* serif 600 / 1.20 */
+  --heading-2:24px;  /* sans  600 / 1.30 */
+  --heading-3:18px;  /* sans  600 / 1.40 */
+  /* ── Body (IBM Plex Sans) ── */
+  --body-lg:18px;    /* 400 / 1.60 */
+  --body-md:16px;    /* 400 / 1.60 · default */
+  --body-sm:14px;    /* 400 / 1.50 */
+  --body-xs:13px;    /* 400 / 1.50 */
+  /* ── Utility ── */
+  --micro:11px;      /* 400 / 1.40 · meta, fine print */
+  --eyebrow-size:11px;   /* 500 / 0.18em / caps */
+  --button-size:14px;    /* 500 / 0.08em / caps */
+
+  /* ── Spacing (8px base) ── */
+  --space-1:4px;  --space-2:8px;  --space-3:12px; --space-4:16px;
+  --space-5:24px; --space-6:32px; --space-7:48px; --space-8:64px;
+  --space-9:96px; --space-10:128px; --space-11:160px;
+  --container:1280px;
+
+  /* ── Radius — sharp. max 4px ever ── */
+  --radius-none:0;   /* default */
+  --radius-sm:2px;   /* very rare */
+  --radius-md:4px;   /* chips only */
+
+  /* ── Motion — one curve, short, no bounce ── */
+  --ease:cubic-bezier(0.2,0.8,0.2,1);
+  --dur-micro:150ms;       /* button hover, color shift */
+  --dur-component:200ms;   /* card lift, focus transition */
+  --dur-page:300ms;        /* page transition */
+}
+
+/* ============================================================
+   Semantic type classes — apply directly or copy the rules.
+   ============================================================ */
+.ds-display-1{font-family:var(--font-display);font-size:var(--display-1);font-weight:700;line-height:1.05;letter-spacing:-0.02em;}
+.ds-display-2{font-family:var(--font-display);font-size:var(--display-2);font-weight:700;line-height:1.10;letter-spacing:-0.02em;}
+.ds-display-3{font-family:var(--font-display);font-size:var(--display-3);font-weight:600;line-height:1.15;letter-spacing:-0.015em;}
+.ds-display-4{font-family:var(--font-display);font-size:var(--display-4);font-weight:600;line-height:1.20;letter-spacing:-0.01em;}
+
+.ds-h1{font-family:var(--font-display);font-size:var(--heading-1);font-weight:600;line-height:1.20;}
+.ds-h2{font-family:var(--font-body);font-size:var(--heading-2);font-weight:600;line-height:1.30;}
+.ds-h3{font-family:var(--font-body);font-size:var(--heading-3);font-weight:600;line-height:1.40;}
+
+.ds-body-lg{font-family:var(--font-body);font-size:var(--body-lg);font-weight:400;line-height:1.60;}
+.ds-body{font-family:var(--font-body);font-size:var(--body-md);font-weight:400;line-height:1.60;}
+.ds-body-sm{font-family:var(--font-body);font-size:var(--body-sm);font-weight:400;line-height:1.50;}
+.ds-body-xs{font-family:var(--font-body);font-size:var(--body-xs);font-weight:400;line-height:1.50;}
+
+.ds-micro{font-family:var(--font-body);font-size:var(--micro);font-weight:400;line-height:1.40;color:var(--text-muted);}
+.ds-mono{font-family:var(--font-mono);font-weight:400;}
+
+/* Eyebrow — conditional color: gold-on-light by default,
+   canonical #FFC107 when inside an .on-navy context. */
+.ds-eyebrow{
+  font-family:var(--font-body);font-size:var(--eyebrow-size);font-weight:500;
+  line-height:1.4;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--accent-gold-on-light);
+}
+.on-navy .ds-eyebrow,.ds-eyebrow--on-navy{color:var(--accent-gold);}
+
+/* Button label run */
+.ds-button-label{
+  font-family:var(--font-body);font-size:var(--button-size);font-weight:500;
+  letter-spacing:0.08em;text-transform:uppercase;
+}
+
+/* The signature section-header pattern: top-right eyebrow + 24px gold rule */
+.ds-sec-header{display:flex;flex-direction:column;align-items:flex-end;gap:var(--space-2);}
+.ds-gold-rule{width:24px;height:1px;background:var(--accent-gold);}
+
+::selection{background:var(--accent-gold);color:var(--text-primary);}

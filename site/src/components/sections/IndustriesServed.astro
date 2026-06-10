@@ -1,0 +1,67 @@
+---
+/**
+ * Industries served — horizontal carousel of photo cards with navy
+ * gradient overlay (number · title · subtitle). Prev/next controls.
+ */
+import SectionHeader from '../SectionHeader.astro';
+import { home, type Locale } from '../../i18n/dict';
+import { INDUSTRIES } from '../../data/catalogue';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = home[locale].industries;
+const isEN = locale === 'en';
+---
+
+<section class="section soft" id="industries">
+  <div class="wrap">
+    <div class="section-top">
+      <p class="section-lede">{t.lede}</p>
+      <SectionHeader label={t.label} />
+    </div>
+  </div>
+
+  <div class="carousel" data-carousel>
+    <div class="carousel-track" data-carousel-track>
+      {INDUSTRIES.map((i, idx) => (
+        <article class="ind-slide">
+          <img src={i.img} alt={isEN ? i.en : i.zh} loading="lazy" />
+          <div class="ind-slide-body">
+            <span class="ind-slide-no">{String(idx + 1).padStart(2, '0')}</span>
+            <h3 class="ind-slide-title">{isEN ? i.en : i.zh}</h3>
+            <p class="ind-slide-sub">{isEN ? i.enSub : i.zhSub}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="carousel-foot">
+      <div class="carousel-nav">
+        <button class="carousel-btn" data-carousel-prev aria-label="Previous">←</button>
+        <button class="carousel-btn" data-carousel-next aria-label="Next">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector('[data-carousel]');
+    if (!root) return;
+    const track = root.querySelector('[data-carousel-track]');
+    const prev = document.querySelector('[data-carousel-prev]');
+    const next = document.querySelector('[data-carousel-next]');
+    if (!track || !prev || !next) return;
+    const step = () => {
+      const card = track.querySelector('.ind-slide');
+      const gap = parseFloat(getComputedStyle(track).columnGap || '24') || 24;
+      return card ? card.getBoundingClientRect().width + gap : 320;
+    };
+    prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  })();
+</script>

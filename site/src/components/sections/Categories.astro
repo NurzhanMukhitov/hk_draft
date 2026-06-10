@@ -1,0 +1,35 @@
+---
+/**
+ * Categories — 8 cards in a 4-column grid. Hover lifts the card +
+ * navy border (the entire interaction vocabulary for cards).
+ */
+import SectionHeader from '../SectionHeader.astro';
+import { home, type Locale } from '../../i18n/dict';
+import { CATEGORIES } from '../../data/catalogue';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = home[locale].categories;
+const isEN = locale === 'en';
+---
+
+<section class="section" id="categories">
+  <div class="wrap">
+    <div class="section-top">
+      <p class="section-lede">{t.lede}</p>
+      <SectionHeader label={t.label} />
+    </div>
+    <div class="ind-grid">
+      {CATEGORIES.map((c) => (
+        <div class="ind-card">
+          <div class="imgslot">
+            <img src={c.img} alt={isEN ? c.en : c.zh} loading="lazy" />
+          </div>
+          <div class="ind-name">{isEN ? c.en : c.zh}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

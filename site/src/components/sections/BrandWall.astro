@@ -1,0 +1,39 @@
+---
+/**
+ * Brand wall — 12 anchor brand wordmarks in a 4×3 grid on a soft section.
+ * Brand names are text wordmarks (real SVG logos are a future v2 swap).
+ *
+ * Honors the brand bible "brand-wall.html" preview card structure.
+ */
+import SectionHeader from '../SectionHeader.astro';
+import { home, type Locale } from '../../i18n/dict';
+import { BRANDS } from '../../data/catalogue';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = home[locale].brandWall;
+const reqHref = locale === 'en' ? '/#quick-rfq' : '/zh-cn#quick-rfq';
+---
+
+<section class="section soft" id="brand-wall">
+  <div class="wrap">
+    <div class="section-top">
+      <SectionHeader label={t.label} />
+    </div>
+    <div class="brand-grid">
+      {BRANDS.map((b) => (
+        <div class="brand-cell">
+          <div class="brand-logo-slot">
+            {/* TODO: drop <img src="/images/brands/<slug>.svg" alt={b}> here when brand SVGs are available */}
+            <span class="brand-wordmark">{b}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="brand-more">
+      {t.more} <a href={reqHref}>{t.reqBrand}</a>
+    </p>
+  </div>
+</section>

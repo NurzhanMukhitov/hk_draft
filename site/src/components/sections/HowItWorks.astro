@@ -1,0 +1,34 @@
+---
+/**
+ * How it works — 4 numbered steps, horizontal timeline,
+ * thin gold rule connecting them.
+ */
+import SectionHeader from '../SectionHeader.astro';
+import { home, type Locale } from '../../i18n/dict';
+import { STEPS } from '../../data/catalogue';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = home[locale].howItWorks;
+const isEN = locale === 'en';
+---
+
+<section class="section" id="how-it-works">
+  <div class="wrap">
+    <div class="section-top">
+      <SectionHeader label={t.label} />
+    </div>
+    <div class="how-grid">
+      {STEPS.map((s) => (
+        <div class="how-step">
+          <div class="how-no">{s.no}</div>
+          <div class="how-rule"></div>
+          <div class="how-title">{isEN ? s.en : s.zh}</div>
+          <div class="how-sub">{isEN ? s.enSub : s.zhSub}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

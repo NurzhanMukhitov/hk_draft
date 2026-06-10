@@ -1,0 +1,22 @@
+---
+/**
+ * Section header pattern — the system's signature.
+ *
+ * From the brand bible:
+ *   "whisper-quiet top-right eyebrow + 24px gold rule.
+ *    Never a big centered banner. Content carries the visual weight."
+ *
+ * Renders `.sec-header > .eyebrow + .gold-rule` per components.css.
+ * Toggle `onNavy` for the eyebrow color swap (#B8860B on light → #FFC107 on navy).
+ */
+interface Props {
+  label: string;
+  onNavy?: boolean;
+}
+const { label, onNavy = false } = Astro.props;
+---
+
+<div class="sec-header">
+  <span class:list={['eyebrow', onNavy && 'eyebrow--on-navy']}>{label}</span>
+  <span class="gold-rule"></span>
+</div>

@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# editors
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# node (site/ has its own, this covers the root just in case)
+node_modules/
+
+# large brief artifacts (not needed for site build)
+бриф/handoff/
+site/node_modules/
+site/dist/
+site/.astro/

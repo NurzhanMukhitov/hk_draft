@@ -1,0 +1,30 @@
+---
+/**
+ * Hero — clean photo band on top, centered intro block below (white).
+ * Gold accent strip lives in the header above. Single red CTA, centered.
+ */
+import { home, type Locale } from '../../i18n/dict';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = home[locale].hero;
+
+const ctaHref = locale === 'en' ? '/#quick-rfq' : '/zh-cn#quick-rfq';
+const heroImage = '/images/hero/image_02.jpeg';
+---
+
+<section class="hero">
+  <div class="hero-photo">
+    <img src={heroImage} alt="" loading="eager" fetchpriority="high" />
+  </div>
+  <div class="hero-line" aria-hidden="true"></div>
+  <div class="hero-intro">
+    <p class="eyebrow">{t.eyebrow}</p>
+    <h1>{t.h1}</h1>
+    <p class="hero-sub">{t.subheading}</p>
+    <span class="hero-divider" aria-hidden="true"></span>
+    <a class="btn btn-primary" href={ctaHref}>{t.cta} →</a>
+  </div>
+</section>

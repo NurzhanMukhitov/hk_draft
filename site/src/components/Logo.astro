@@ -1,0 +1,32 @@
+---
+/**
+ * AxisParts logo — canonical AXIS|PARTS wordmark.
+ * From `handoff/.../assets/axisparts-logo.svg`.
+ *
+ * Rules from the brand bible (axisparts-design-system/project/README.md §4):
+ *   "Render this exact SVG inline (it inherits currentColor, so it flips
+ *    navy-on-light / white-on-navy for free). Do not redraw it, do not
+ *    change tracking, do not switch to mixed case.
+ *    AXIS = Serif 600 / +4 tracking · PARTS = Sans 300 / +6 tracking
+ *    · separated by a 1.8px gold rule."
+ */
+interface Props {
+  height?: number;
+  color?: string;
+  class?: string;
+}
+const { height = 26, color = 'currentColor', class: className } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 320 64"
+  role="img"
+  aria-label="AxisParts"
+  height={height}
+  style={`width:auto;display:block;color:${color};`}
+  class:list={[className]}
+>
+  <text x="0" y="42" font-family="'IBM Plex Serif','Georgia',serif" font-size="28" font-weight="600" letter-spacing="4" fill="currentColor">AXIS</text>
+  <rect x="124" y="20" width="1.8" height="24" fill="#FFC107"></rect>
+  <text x="142" y="42" font-family="'IBM Plex Sans',sans-serif" font-size="28" font-weight="300" letter-spacing="6" fill="currentColor">PARTS</text>
+</svg>

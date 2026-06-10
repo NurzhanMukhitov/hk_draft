@@ -1,0 +1,13 @@
+/* AxisParts — global stylesheet orchestrator
+   Loads the design system CSS in canonical order:
+     1. fonts.css  — @font-face declarations (IBM Plex Serif/Sans/Mono + Sans SC)
+     2. colors_and_type.css — tokens + .ds-* semantic classes + body defaults
+     3. components.css — buttons, inputs, cards, nav, footer, tables, breadcrumb, pagination, section-header
+     4. kit.css — website-specific layout (hero, grids, catalogue, product, quote, footer)
+   colors_and_type.css internally @imports fonts.css; loading the latter first
+   is a no-op but keeps the dependency chain explicit and resilient. */
+
+@import "./fonts.css";
+@import "./colors_and_type.css";
+@import "./components.css";
+@import "./kit.css";

@@ -1,0 +1,30 @@
+---
+/**
+ * Home — 简体中文 (zh-CN). Mirrors the EN home, same sections, ZH dictionary.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import BrandWall from '../../components/sections/BrandWall.astro';
+import Categories from '../../components/sections/Categories.astro';
+import IndustriesServed from '../../components/sections/IndustriesServed.astro';
+import HowItWorks from '../../components/sections/HowItWorks.astro';
+import GlobalSupply from '../../components/sections/GlobalSupply.astro';
+import QuickRFQSection from '../../components/sections/QuickRFQSection.astro';
+
+const locale = 'zh-CN' as const;
+const title = 'AxisParts — 香港工业采购中心';
+const description =
+  'AxisParts 供应来自 1,000+ 全球品牌的原厂及替代工业零件。香港中心 120 小时内确认报价，全球发货。';
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <main>
+    <Hero locale={locale} />
+    <BrandWall locale={locale} />
+    <Categories locale={locale} />
+    <IndustriesServed locale={locale} />
+    <HowItWorks locale={locale} />
+    <GlobalSupply locale={locale} />
+    <QuickRFQSection locale={locale} />
+  </main>
+</BaseLayout>
