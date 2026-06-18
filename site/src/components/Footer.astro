@@ -1,9 +1,8 @@
 ---
 /**
- * Site footer — 4 columns over navy. Reversed Logo color, gold hairlines
- * top + bottom, muted secondary text on navy.
+ * Site footer — 4 columns over navy. Gold hairlines top + bottom,
+ * muted secondary text on navy.
  */
-import Logo from './Logo.astro';
 import { shared, type Locale } from '../i18n/dict';
 import { localeRoot } from '../lib/paths';
 
@@ -19,9 +18,7 @@ const homeHref = localeRoot(locale);
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="logo" href={homeHref} aria-label="AxisParts home">
-          <Logo color="#fff" height={24} />
-        </a>
+        <a class="logo-placeholder logo-placeholder--foot" href={homeHref} aria-label="AxisParts home">LOGO HERE</a>
         <p class="tag" set:html={t.tag}></p>
       </div>
       <div class="foot-contact">
