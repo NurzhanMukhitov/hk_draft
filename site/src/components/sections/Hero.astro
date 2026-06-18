@@ -1,30 +1,90 @@
 ---
 /**
- * Hero — clean photo band on top, centered intro block below (white).
- * Gold accent strip lives in the header above. Single red CTA, centered.
+ * Hero — full-width photo carousel (text baked into slides).
  */
-import { home, type Locale } from '../../i18n/dict';
-
-interface Props {
-  locale: Locale;
-}
-const { locale } = Astro.props;
-const t = home[locale].hero;
-
-const ctaHref = locale === 'en' ? '/#quick-rfq' : '/zh-cn#quick-rfq';
-const heroImage = '/images/hero/image_02.jpeg';
+const heroSlides = [
+  '/images/hero/hero_01.jpeg',
+  '/images/hero/hero_02.jpeg',
+  '/images/hero/hero_03.jpeg',
+  '/images/hero/hero_04.jpeg',
+];
 ---
 
 <section class="hero">
-  <div class="hero-photo">
-    <img src={heroImage} alt="" loading="eager" fetchpriority="high" />
+  <div class="hero-photo" data-hero-carousel>
+    <div class="hero-slides">
+      {heroSlides.map((src, i) => (
+        <div class={`hero-slide${i === 0 ? ' is-active' : ''}`} data-hero-slide>
+          <img
+            src={src}
+            alt=""
+            loading={i === 0 ? 'eager' : 'lazy'}
+            fetchpriority={i === 0 ? 'high' : 'auto'}
+          />
+        </div>
+      ))}
+    </div>
+    <div class="hero-dots" aria-hidden="true">
+      {heroSlides.map((_, i) => (
+        <button
+          type="button"
+          class={`hero-dot${i === 0 ? ' is-active' : ''}`}
+          data-hero-dot={i}
+          aria-label={`Slide ${i + 1}`}
+        />
+      ))}
+    </div>
+    <div class="hero-nav">
+      <button type="button" class="hero-arrow hero-arrow--prev" data-hero-prev aria-label="Previous slide">←</button>
+      <button type="button" class="hero-arrow hero-arrow--next" data-hero-next aria-label="Next slide">→</button>
+    </div>
   </div>
   <div class="hero-line" aria-hidden="true"></div>
-  <div class="hero-intro">
-    <p class="eyebrow">{t.eyebrow}</p>
-    <h1>{t.h1}</h1>
-    <p class="hero-sub">{t.subheading}</p>
-    <span class="hero-divider" aria-hidden="true"></span>
-    <a class="btn btn-primary" href={ctaHref}>{t.cta} →</a>
-  </div>
 </section>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector('[data-hero-carousel]');
+    if (!root) return;
+    const slides = [...root.querySelectorAll('[data-hero-slide]')];
+    const dots = [...root.querySelectorAll('[data-hero-dot]')];
+    const prev = root.querySelector('[data-hero-prev]');
+    const next = root.querySelector('[data-hero-next]');
+    if (!slides.length) return;
+
+    let index = 0;
+    let timer;
+    const INTERVAL = 4000;
+
+    const show = (nextIndex) => {
+      index = (nextIndex + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+    };
+
+    const start = () => {
+      clearInterval(timer);
+      timer = setInterval(() => show(index + 1), INTERVAL);
+    };
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        show(Number(dot.dataset.heroDot));
+        start();
+      });
+    });
+
+    prev?.addEventListener('click', () => {
+      show(index - 1);
+      start();
+    });
+    next?.addEventListener('click', () => {
+      show(index + 1);
+      start();
+    });
+
+    root.addEventListener('mouseenter', () => clearInterval(timer));
+    root.addEventListener('mouseleave', start);
+    start();
+  })();
+</script>

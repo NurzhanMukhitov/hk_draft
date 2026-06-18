@@ -1,16 +1,7 @@
 ---
 /**
- * Site header — sticky, logo + nav + language switcher.
- *
- * Anti-pattern enforced: NO Get-Quote button in header. The page itself
- * drives the user to the RFQ form section. Departure from competitor norm
- * is intentional (see brand bible anti-patterns).
- *
- * Language switcher is plain links to the other locale's root. Astro pages
- * at `/` and `/zh-cn/` carry the per-locale state — no React island needed
- * just for the toggle.
+ * Site header — centered logo placeholder, contacts left, lang + burger right.
  */
-import Logo from './Logo.astro';
 import { shared, type Locale } from '../i18n/dict';
 
 interface Props {
@@ -29,24 +20,23 @@ const navItems = [
   { href: `${base}#global-supply`, label: t.nav.globalSupply },
   { href: `${base}#quick-rfq`, label: t.nav.rfq },
 ];
+
+const phone = '+852 0000 0000';
+const phoneHref = 'tel:+85200000000';
+const email = 'sales@axisparts.hk';
+const waHref = 'https://wa.me/85200000000';
 ---
 
-<div class="topstrip">
-  <div class="wrap">
-    {t.strip.map((s, i) => (
-      <Fragment>
-        {i > 0 && <span class="topstrip-dot" aria-hidden="true">·</span>}
-        <span>{s}</span>
-      </Fragment>
-    ))}
-  </div>
-</div>
-
 <header class="site-head">
-  <div class="wrap">
-    <a class="logo" href={base} aria-label="AxisParts home">
-      <Logo />
-    </a>
+  <div class="wrap head-grid">
+    <div class="head-contacts">
+      <a class="head-contact" href={phoneHref}>{phone}</a>
+      <a class="head-contact" href={`mailto:${email}`}>{email}</a>
+      <a class="head-contact head-contact--wa" href={waHref} target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+
+    <a class="logo-placeholder" href={base} aria-label="AxisParts home">LOGO HERE</a>
+
     <div class="head-right">
       <a class="lang" href={otherHref} aria-label="Switch language">
         <b style={locale === 'en' ? '' : 'color:var(--text-muted);font-weight:400;'}>EN</b>
@@ -60,6 +50,11 @@ const navItems = [
   </div>
   <nav id="mobile-nav" class="mobile-nav" aria-label="Main navigation">
     {navItems.map((n) => <a href={n.href}>{n.label}</a>)}
+    <div class="mobile-contacts">
+      <a href={phoneHref}>{phone}</a>
+      <a href={`mailto:${email}`}>{email}</a>
+      <a href={waHref} target="_blank" rel="noopener">WhatsApp</a>
+    </div>
   </nav>
 </header>
 

@@ -23,12 +23,12 @@ const FREIGHT_ICONS = [
 
 <section class="section soft" id="global-supply">
   <div class="wrap">
-    <div class="section-top">
+    <div class="section-top" data-reveal>
       <p class="section-lede">{t.lede}</p>
       <SectionHeader label={t.label} />
     </div>
     <div class="supply-cols">
-      <div class="supply-left">
+      <div class="supply-left" data-reveal data-reveal-from="left">
         <div class="supply-block">
           <h4>{t.regions}</h4>
           <ul class="supply-list">
@@ -50,7 +50,13 @@ const FREIGHT_ICONS = [
         </div>
       </div>
       <div class="supply-media">
-        <img src="/images/global_supply_last.jpg" alt="Worldwide freight network — air, sea and express" loading="lazy" />
+        <img
+          src="/images/global_supply_last.jpg"
+          alt="Worldwide freight network — air, sea and express"
+          loading="lazy"
+          data-reveal
+          data-reveal-fade
+        />
       </div>
     </div>
   </div>

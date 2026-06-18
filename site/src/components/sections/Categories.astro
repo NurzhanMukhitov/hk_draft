@@ -17,11 +17,11 @@ const isEN = locale === 'en';
 
 <section class="section" id="categories">
   <div class="wrap">
-    <div class="section-top">
+    <div class="section-top" data-reveal>
       <p class="section-lede">{t.lede}</p>
       <SectionHeader label={t.label} />
     </div>
-    <div class="ind-grid">
+    <div class="ind-grid cat-reveal-grid" data-reveal data-reveal-stagger>
       {CATEGORIES.map((c) => (
         <div class="ind-card">
           <div class="imgslot">

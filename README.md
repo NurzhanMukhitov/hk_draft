@@ -12,6 +12,12 @@ npm run build
 npm run preview  # http://localhost:4321
 ```
 
+## GitHub
+
+Репозиторий: https://github.com/NurzhanMukhitov/hk_draft
+
+Каждый push в `main` → GitHub Actions собирает сайт (проверка). После подключения Vercel — тот же push обновляет preview-URL.
+
 ## Деплой на Vercel (твой аккаунт)
 
 1. Запушить репозиторий на GitHub.

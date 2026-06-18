@@ -11,6 +11,7 @@ node_modules/
 
 # large brief artifacts (not needed for site build)
 бриф/handoff/
+бриф/new img/
 site/node_modules/
 site/dist/
 site/.astro/

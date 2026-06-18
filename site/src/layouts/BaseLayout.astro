@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SideContact from '../components/SideContact.astro';
+import ScrollReveal from '../components/ScrollReveal.astro';
 import type { Locale } from '../i18n/dict';
 
 interface Props {
@@ -33,5 +34,6 @@ const htmlLang = locale === 'zh-CN' ? 'zh-Hans' : 'en';
     <slot />
     <SideContact locale={locale} />
     <Footer locale={locale} />
+    <ScrollReveal />
   </body>
 </html>

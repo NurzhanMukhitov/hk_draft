@@ -17,10 +17,10 @@ const isEN = locale === 'en';
 
 <section class="section" id="how-it-works">
   <div class="wrap">
-    <div class="section-top">
+    <div class="section-top" data-reveal>
       <SectionHeader label={t.label} />
     </div>
-    <div class="how-grid">
+    <div class="how-grid" data-reveal data-reveal-stagger>
       {STEPS.map((s) => (
         <div class="how-step">
           <div class="how-no">{s.no}</div>
