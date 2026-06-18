@@ -22,6 +22,7 @@ const heroSlides = [
             alt=""
             loading={i === 0 ? 'eager' : 'lazy'}
             fetchpriority={i === 0 ? 'high' : 'auto'}
+            decoding="async"
           />
         </div>
       ))}
@@ -56,7 +57,7 @@ const heroSlides = [
 
     let index = 0;
     let timer;
-    const INTERVAL = 4000;
+    const INTERVAL = 3000;
 
     const show = (nextIndex) => {
       index = (nextIndex + slides.length) % slides.length;

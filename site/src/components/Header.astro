@@ -10,8 +10,8 @@ interface Props {
 }
 const { locale } = Astro.props;
 const t = shared[locale];
-const otherHref = locale === 'en' ? sitePath('/zh-cn') : sitePath('/');
 const base = localeRoot(locale);
+const lang = t.lang;
 
 const navItems = [
   { href: `${base}#brand-wall`, label: t.nav.brands },
@@ -26,6 +26,9 @@ const phone = '+852 0000 0000';
 const phoneHref = 'tel:+85200000000';
 const email = 'sales@axisparts.hk';
 const waHref = 'https://wa.me/85200000000';
+
+const isEN = locale === 'en';
+const currentLabel = isEN ? lang.en : lang.zh;
 ---
 
 <header class="site-head">
@@ -39,11 +42,45 @@ const waHref = 'https://wa.me/85200000000';
     <a class="logo-placeholder" href={base} aria-label="AxisParts home">LOGO HERE</a>
 
     <div class="head-right">
-      <a class="lang" href={otherHref} aria-label="Switch language">
-        <b style={locale === 'en' ? '' : 'color:var(--text-muted);font-weight:400;'}>EN</b>
-        <span class="bar">|</span>
-        <b style={locale === 'zh-CN' ? '' : 'color:var(--text-muted);font-weight:400;'}>简体中文</b>
-      </a>
+      <div class="lang-switch" data-lang-switch>
+        <button
+          type="button"
+          class="lang-switch__btn"
+          aria-label={lang.aria}
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-controls="lang-menu"
+        >
+          <span class="lang-switch__label">{currentLabel}</span>
+          <svg class="lang-switch__chev" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+            <path d="M2.5 4.5 6 8 9.5 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <ul id="lang-menu" class="lang-switch__menu" role="listbox" hidden>
+          <li role="presentation">
+            <a
+              class="lang-switch__option"
+              href={sitePath('/')}
+              role="option"
+              aria-selected={isEN}
+              aria-current={isEN ? 'page' : undefined}
+            >
+              {lang.en}
+            </a>
+          </li>
+          <li role="presentation">
+            <a
+              class="lang-switch__option"
+              href={sitePath('/zh-cn')}
+              role="option"
+              aria-selected={!isEN}
+              aria-current={!isEN ? 'page' : undefined}
+            >
+              {lang.zh}
+            </a>
+          </li>
+        </ul>
+      </div>
       <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
         <span></span><span></span><span></span>
       </button>
@@ -64,18 +101,48 @@ const waHref = 'https://wa.me/85200000000';
     const head = document.querySelector('.site-head');
     const btn = head?.querySelector('.nav-toggle');
     const nav = document.getElementById('mobile-nav');
+    const langSwitch = head?.querySelector('[data-lang-switch]');
+    const langBtn = langSwitch?.querySelector('.lang-switch__btn');
+    const langMenu = document.getElementById('lang-menu');
     if (!head || !btn || !nav) return;
-    const close = () => {
+
+    const closeLang = () => {
+      if (!langSwitch || !langBtn || !langMenu) return;
+      langSwitch.classList.remove('is-open');
+      langBtn.setAttribute('aria-expanded', 'false');
+      langMenu.setAttribute('hidden', '');
+    };
+
+    const closeNav = () => {
       head.classList.remove('nav-open');
       btn.setAttribute('aria-expanded', 'false');
     };
+
+    langBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = !langSwitch.classList.contains('is-open');
+      if (open) closeNav();
+      langSwitch.classList.toggle('is-open', open);
+      langBtn.setAttribute('aria-expanded', String(open));
+      if (open) langMenu.removeAttribute('hidden');
+      else langMenu.setAttribute('hidden', '');
+    });
+
     btn.addEventListener('click', () => {
+      closeLang();
       const open = head.classList.toggle('nav-open');
       btn.setAttribute('aria-expanded', String(open));
     });
-    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+
+    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeNav));
+    document.addEventListener('click', (e) => {
+      if (!langSwitch?.contains(e.target)) closeLang();
+    });
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') close();
+      if (e.key === 'Escape') {
+        closeNav();
+        closeLang();
+      }
     });
   })();
 </script>

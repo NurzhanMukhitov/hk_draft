@@ -16,6 +16,11 @@ export const shared = {
       globalSupply: 'Global supply',
       rfq: 'Quick RFQ',
     },
+    lang: {
+      aria: 'Select language',
+      en: 'En',
+      zh: '中文',
+    },
     footer: {
       tag: 'Original parts from 1,000+ global brands.<br>One Hong Kong desk.',
       brands: 'Brands',
@@ -36,6 +41,11 @@ export const shared = {
       howItWorks: '运作流程',
       globalSupply: '全球供应',
       rfq: '快速询价',
+    },
+    lang: {
+      aria: '选择语言',
+      en: 'En',
+      zh: '中文',
     },
     footer: {
       tag: '原厂零件，覆盖 1,000+ 全球品牌。<br>香港一站采购。',

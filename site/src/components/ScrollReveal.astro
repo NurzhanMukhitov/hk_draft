@@ -1,6 +1,6 @@
 <script is:inline>
   (() => {
-    const items = document.querySelectorAll('[data-reveal]');
+    const items = document.querySelectorAll('[data-reveal], [data-how-sequence]');
     if (!items.length) return;
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
