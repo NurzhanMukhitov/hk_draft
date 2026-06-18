@@ -1,6 +1,12 @@
 # AxisParts HK — preview
 
-Статический сайт на Astro (`site/`). Исходники и preview — только на GitHub.
+Статический сайт на Astro (`site/`). Исходники и preview — на GitHub.
+
+## Живой сайт
+
+**https://nurzhanmukhitov.github.io/hk_draft/**
+
+Каждый push в `main` → GitHub Actions собирает `site/` и публикует на GitHub Pages.
 
 ## Локально
 
@@ -12,18 +18,20 @@ npm run build
 npm run preview  # http://localhost:4321
 ```
 
+Проверить сборку как на GitHub Pages:
+
+```bash
+cd site
+BASE_PATH=/hk_draft npm run build
+npm run preview -- --base /hk_draft
+```
+
 ## GitHub
 
 Репозиторий: https://github.com/NurzhanMukhitov/hk_draft
 
-Каждый push в `main` → GitHub Actions проверяет сборку (`npm run build` в `site/`).
-
-Показать клиенту: скриншоты (`site/scripts/capture-snaps.mjs` → папка на диске) или локальный `npm run dev` / `npm run preview`.
-
-## Перенос на клиента (позже)
-
-- GitHub: Transfer repository или новый репо + push.
-- Хостинг и домен `axisparts.hk` — на стороне клиента, когда будет готово.
+- `ci.yml` — проверка сборки на PR
+- `deploy-pages.yml` — деплой на GitHub Pages
 
 ## Структура
 

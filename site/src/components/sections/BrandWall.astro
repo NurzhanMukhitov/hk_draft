@@ -8,13 +8,14 @@
 import SectionHeader from '../SectionHeader.astro';
 import { home, type Locale } from '../../i18n/dict';
 import { BRANDS } from '../../data/catalogue';
+import { sitePath } from '../../lib/paths';
 
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
 const t = home[locale].brandWall;
-const reqHref = locale === 'en' ? '/#quick-rfq' : '/zh-cn#quick-rfq';
+const reqHref = sitePath(locale === 'en' ? '/#quick-rfq' : '/zh-cn#quick-rfq');
 ---
 
 <section class="section soft" id="brand-wall">

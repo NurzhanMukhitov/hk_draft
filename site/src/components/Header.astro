@@ -3,14 +3,15 @@
  * Site header — centered logo placeholder, contacts left, lang + burger right.
  */
 import { shared, type Locale } from '../i18n/dict';
+import { localeRoot, sitePath } from '../lib/paths';
 
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
 const t = shared[locale];
-const otherHref = locale === 'en' ? '/zh-cn' : '/';
-const base = locale === 'en' ? '/' : '/zh-cn';
+const otherHref = locale === 'en' ? sitePath('/zh-cn') : sitePath('/');
+const base = localeRoot(locale);
 
 const navItems = [
   { href: `${base}#brand-wall`, label: t.nav.brands },

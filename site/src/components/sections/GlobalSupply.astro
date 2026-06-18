@@ -5,6 +5,7 @@
 import SectionHeader from '../SectionHeader.astro';
 import { home, type Locale } from '../../i18n/dict';
 import { REGIONS, FREIGHT } from '../../data/catalogue';
+import { asset } from '../../lib/paths';
 
 interface Props {
   locale: Locale;
@@ -51,7 +52,7 @@ const FREIGHT_ICONS = [
       </div>
       <div class="supply-media">
         <img
-          src="/images/global_supply_last.jpg"
+          src={asset('/images/global_supply_last.jpg')}
           alt="Worldwide freight network — air, sea and express"
           loading="lazy"
           data-reveal

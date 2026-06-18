@@ -3,6 +3,8 @@
    12 anchor brands, 8 categories, 8 industries, 4 steps, 5 regions, 3 freight modes,
    plus a sample of 12 real products (one per anchor brand, all 8 categories covered). */
 
+import { asset } from '../lib/paths';
+
 export const BRANDS = [
   'Siemens', 'ABB', 'Schneider Electric', 'Mitsubishi Electric',
   'Omron', 'Fanuc', 'Allen-Bradley (Rockwell)', 'Yaskawa',
@@ -18,14 +20,14 @@ export interface Category {
 }
 
 export const CATEGORIES: Category[] = [
-  { id: 'plc',     en: 'PLC & Controllers',       zh: 'PLC 与控制器',   count: 412, img: '/images/categories/01_plc_controllers.jpeg' },
-  { id: 'servo',   en: 'Servo Motors & Drives',   zh: '伺服电机与驱动', count: 386, img: '/images/categories/02_servo_drives.jpeg' },
-  { id: 'sensors', en: 'Sensors & Switches',      zh: '传感器与开关',   count: 524, img: '/images/categories/03_sensors_switches.jpeg' },
-  { id: 'hmi',     en: 'HMI & Panels',            zh: 'HMI 与面板',     count: 198, img: '/images/categories/04_hmi_panels.jpeg' },
-  { id: 'power',   en: 'Power Supplies',          zh: '电源',           count: 267, img: '/images/categories/05_power_supplies.jpeg' },
-  { id: 'robots',  en: 'Industrial Robots',       zh: '工业机器人',     count: 142, img: '/images/categories/06_industrial_robots.jpeg' },
-  { id: 'cnc',     en: 'CNC Components',          zh: 'CNC 组件',       count: 231, img: '/images/categories/07_cnc_components.jpeg' },
-  { id: 'spares',  en: 'Automation Spare Parts',  zh: '自动化备件',     count: 689, img: '/images/categories/08_spare_parts.jpeg' },
+  { id: 'plc',     en: 'PLC & Controllers',       zh: 'PLC 与控制器',   count: 412, img: asset('/images/categories/01_plc_controllers.jpeg') },
+  { id: 'servo',   en: 'Servo Motors & Drives',   zh: '伺服电机与驱动', count: 386, img: asset('/images/categories/02_servo_drives.jpeg') },
+  { id: 'sensors', en: 'Sensors & Switches',      zh: '传感器与开关',   count: 524, img: asset('/images/categories/03_sensors_switches.jpeg') },
+  { id: 'hmi',     en: 'HMI & Panels',            zh: 'HMI 与面板',     count: 198, img: asset('/images/categories/04_hmi_panels.jpeg') },
+  { id: 'power',   en: 'Power Supplies',          zh: '电源',           count: 267, img: asset('/images/categories/05_power_supplies.jpeg') },
+  { id: 'robots',  en: 'Industrial Robots',       zh: '工业机器人',     count: 142, img: asset('/images/categories/06_industrial_robots.jpeg') },
+  { id: 'cnc',     en: 'CNC Components',          zh: 'CNC 组件',       count: 231, img: asset('/images/categories/07_cnc_components.jpeg') },
+  { id: 'spares',  en: 'Automation Spare Parts',  zh: '自动化备件',     count: 689, img: asset('/images/categories/08_spare_parts.jpeg') },
 ];
 
 export interface Industry {
@@ -38,14 +40,14 @@ export interface Industry {
 }
 
 export const INDUSTRIES: Industry[] = [
-  { id: 'manufacturing',  en: 'Manufacturing',  zh: '制造业',       enSub: 'Contract manufacturers · OEM lines · assembly cells', zhSub: '代工厂 · OEM 产线 · 装配车间',   img: '/images/industries/01_manufacturing.jpeg' },
-  { id: 'automation',     en: 'Automation',     zh: '自动化',       enSub: 'System integrators · motion control · robotics cells', zhSub: '系统集成 · 运动控制 · 机器人单元', img: '/images/industries/02_automation.jpeg' },
-  { id: 'electronics',    en: 'Electronics',    zh: '电子',         enSub: 'SMT lines · semiconductor · fabrication tooling', zhSub: 'SMT 产线 · 半导体 · 制造工装',   img: '/images/industries/03_electronics.jpeg' },
-  { id: 'energy',         en: 'Energy',         zh: '能源',         enSub: 'Grid utilities · substation gear · renewables', zhSub: '电网公用 · 变电设备 · 可再生能源', img: '/images/industries/04_energy.jpeg' },
-  { id: 'oilgas',         en: 'Oil & Gas',      zh: '石油与天然气', enSub: 'Upstream · downstream · process instrumentation', zhSub: '上游 · 下游 · 过程仪表',         img: '/images/industries/05_oil_gas.jpeg' },
-  { id: 'mining',         en: 'Mining',         zh: '采矿',         enSub: 'Open-pit and underground · materials handling', zhSub: '露天与地下 · 物料搬运',          img: '/images/industries/06_mining.jpeg' },
-  { id: 'marine',         en: 'Marine',         zh: '船舶',         enSub: 'Shipyards · port equipment · offshore', zhSub: '船厂 · 港口设备 · 海洋工程',     img: '/images/industries/07_marine.jpeg' },
-  { id: 'infrastructure', en: 'Infrastructure', zh: '基础设施',     enSub: 'Rail · water · public works · construction', zhSub: '轨道 · 水务 · 市政工程',         img: '/images/industries/08_infrastructure.jpeg' },
+  { id: 'manufacturing',  en: 'Manufacturing',  zh: '制造业',       enSub: 'Contract manufacturers · OEM lines · assembly cells', zhSub: '代工厂 · OEM 产线 · 装配车间',   img: asset('/images/industries/01_manufacturing.jpeg') },
+  { id: 'automation',     en: 'Automation',     zh: '自动化',       enSub: 'System integrators · motion control · robotics cells', zhSub: '系统集成 · 运动控制 · 机器人单元', img: asset('/images/industries/02_automation.jpeg') },
+  { id: 'electronics',    en: 'Electronics',    zh: '电子',         enSub: 'SMT lines · semiconductor · fabrication tooling', zhSub: 'SMT 产线 · 半导体 · 制造工装',   img: asset('/images/industries/03_electronics.jpeg') },
+  { id: 'energy',         en: 'Energy',         zh: '能源',         enSub: 'Grid utilities · substation gear · renewables', zhSub: '电网公用 · 变电设备 · 可再生能源', img: asset('/images/industries/04_energy.jpeg') },
+  { id: 'oilgas',         en: 'Oil & Gas',      zh: '石油与天然气', enSub: 'Upstream · downstream · process instrumentation', zhSub: '上游 · 下游 · 过程仪表',         img: asset('/images/industries/05_oil_gas.jpeg') },
+  { id: 'mining',         en: 'Mining',         zh: '采矿',         enSub: 'Open-pit and underground · materials handling', zhSub: '露天与地下 · 物料搬运',          img: asset('/images/industries/06_mining.jpeg') },
+  { id: 'marine',         en: 'Marine',         zh: '船舶',         enSub: 'Shipyards · port equipment · offshore', zhSub: '船厂 · 港口设备 · 海洋工程',     img: asset('/images/industries/07_marine.jpeg') },
+  { id: 'infrastructure', en: 'Infrastructure', zh: '基础设施',     enSub: 'Rail · water · public works · construction', zhSub: '轨道 · 水务 · 市政工程',         img: asset('/images/industries/08_infrastructure.jpeg') },
 ];
 
 export interface Step {
