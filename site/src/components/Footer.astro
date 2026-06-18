@@ -18,7 +18,7 @@ const homeHref = localeRoot(locale);
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="logo-placeholder logo-placeholder--foot" href={homeHref} aria-label="AxisParts home">LOGO HERE</a>
+        <a class="logo-placeholder logo-placeholder--foot" href={homeHref} aria-label={locale === 'en' ? 'Home' : '主页'}>LOGO HERE</a>
         <p class="tag" set:html={t.tag}></p>
       </div>
       <div class="foot-contact">

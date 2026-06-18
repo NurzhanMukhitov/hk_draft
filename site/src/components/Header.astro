@@ -24,7 +24,7 @@ const navItems = [
 
 const phone = '+852 0000 0000';
 const phoneHref = 'tel:+85200000000';
-const email = 'sales@axisparts.hk';
+const email = 'sales@example.hk';
 const waHref = 'https://wa.me/85200000000';
 
 const isEN = locale === 'en';
@@ -39,7 +39,7 @@ const currentLabel = isEN ? lang.en : lang.zh;
       <a class="head-contact head-contact--wa" href={waHref} target="_blank" rel="noopener">WhatsApp</a>
     </div>
 
-    <a class="logo-placeholder" href={base} aria-label="AxisParts home">LOGO HERE</a>
+    <a class="logo-placeholder" href={base} aria-label={locale === 'en' ? 'Home' : '主页'}>LOGO HERE</a>
 
     <div class="head-right">
       <div class="lang-switch" data-lang-switch>

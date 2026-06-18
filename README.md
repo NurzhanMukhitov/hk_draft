@@ -1,4 +1,4 @@
-# AxisParts HK — preview
+# HK industrial preview
 
 Статический сайт на Astro (`site/`). Исходники и preview — на GitHub.
 

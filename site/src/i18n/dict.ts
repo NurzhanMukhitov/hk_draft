@@ -28,8 +28,8 @@ export const shared = {
       contact: 'Contact',
       catList: ['PLC & Controllers', 'Servo Motors & Drives', 'Sensors & Switches', 'HMI & Panels'],
       more: '1,000+ more',
-      contactList: ['Mong Kok, Kowloon', '+852 0000 0000', 'sales@axisparts.hk', 'WhatsApp · WeChat'],
-      reg: '© 2026 AxisParts. HK Business Registration in good standing.',
+      contactList: ['Mong Kok, Kowloon', '+852 0000 0000', 'sales@example.hk', 'WhatsApp · WeChat'],
+      reg: '© 2026. HK Business Registration in good standing.',
     },
   },
   'zh-CN': {
@@ -54,8 +54,8 @@ export const shared = {
       contact: '联系',
       catList: ['PLC 与控制器', '伺服电机与驱动', '传感器与开关', 'HMI 与面板'],
       more: '1,000+ 更多',
-      contactList: ['九龙旺角', '+852 0000 0000', 'sales@axisparts.hk', 'WhatsApp · WeChat'],
-      reg: '© 2026 AxisParts。香港商业登记良好。',
+      contactList: ['九龙旺角', '+852 0000 0000', 'sales@example.hk', 'WhatsApp · WeChat'],
+      reg: '© 2026。香港商业登记良好。',
     },
   },
 } as const;

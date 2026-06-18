@@ -5,7 +5,7 @@ import react from '@astrojs/react';
 const base = process.env.BASE_PATH || '/';
 const site =
   base === '/'
-    ? 'https://axisparts.hk'
+    ? 'https://nurzhanmukhitov.github.io/hk_draft'
     : `https://nurzhanmukhitov.github.io${base.replace(/\/$/, '')}`;
 
 // https://astro.build/config

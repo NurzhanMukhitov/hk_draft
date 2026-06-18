@@ -1,4 +1,4 @@
-# AxisParts — Hong Kong Industrial Sourcing Desk
+# HK industrial sourcing desk — site
 
 Bilingual B2B multibrand industrial supply website. Lead-gen via RFQ form.
 
