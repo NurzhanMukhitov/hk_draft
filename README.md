@@ -1,6 +1,6 @@
 # AxisParts HK — preview
 
-Статический сайт на Astro (`site/`). Preview для клиента; позже перенос на клиентские GitHub + Vercel.
+Статический сайт на Astro (`site/`). Исходники и preview — только на GitHub.
 
 ## Локально
 
@@ -16,27 +16,18 @@ npm run preview  # http://localhost:4321
 
 Репозиторий: https://github.com/NurzhanMukhitov/hk_draft
 
-Каждый push в `main` → GitHub Actions собирает сайт (проверка). После подключения Vercel — тот же push обновляет preview-URL.
+Каждый push в `main` → GitHub Actions проверяет сборку (`npm run build` в `site/`).
 
-## Деплой на Vercel (твой аккаунт)
-
-1. Запушить репозиторий на GitHub.
-2. [vercel.com/new](https://vercel.com/new) → Import Git Repository.
-3. **Root Directory:** `site` (обязательно).
-4. Framework: Astro (подтянется сам).
-5. Deploy → получишь URL вида `axisparts-xxx.vercel.app`.
-
-Дальше каждый `git push` в `main` обновляет preview.
+Показать клиенту: скриншоты (`site/scripts/capture-snaps.mjs` → папка на диске) или локальный `npm run dev` / `npm run preview`.
 
 ## Перенос на клиента (позже)
 
 - GitHub: Transfer repository или новый репо + push.
-- Vercel: Add Project в их team / transfer project.
-- Домен `axisparts.hk`: DNS у клиента → Vercel.
+- Хостинг и домен `axisparts.hk` — на стороне клиента, когда будет готово.
 
 ## Структура
 
 ```
-site/          ← рабочий сайт (Vercel root)
+site/          ← рабочий сайт
 бриф/          ← бриф, исходники (не нужен для билда)
 ```
