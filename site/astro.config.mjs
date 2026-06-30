@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
 
 const base = process.env.BASE_PATH || '/';
 const site =
@@ -13,7 +12,7 @@ export default defineConfig({
   site,
   base,
   trailingSlash: 'never',
-  integrations: [react()],
+  integrations: [],
   i18n: {
     defaultLocale: 'en',
     locales: [

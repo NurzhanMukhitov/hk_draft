@@ -12,9 +12,8 @@ const shots = [
   { name: '04-applications-desktop-en', url: '/#industries', viewport: { width: 1440, height: 900 }, fullPage: false, scrollTo: '#industries' },
   { name: '05-categories-desktop-en', url: '/#categories', viewport: { width: 1440, height: 900 }, fullPage: false, scrollTo: '#categories' },
   { name: '06-brands-desktop-en', url: '/#brand-wall', viewport: { width: 1440, height: 900 }, fullPage: false, scrollTo: '#brand-wall' },
-  { name: '07-rfq-desktop-en', url: '/#quick-rfq', viewport: { width: 1440, height: 900 }, fullPage: false, scrollTo: '#quick-rfq' },
-  { name: '08-home-mobile-en', url: '/', viewport: { width: 390, height: 844 }, fullPage: true, isMobile: true },
-  { name: '09-hero-mobile-en', url: '/', viewport: { width: 390, height: 844 }, fullPage: false, isMobile: true },
+  { name: '07-home-mobile-en', url: '/', viewport: { width: 390, height: 844 }, fullPage: true, isMobile: true },
+  { name: '08-hero-mobile-en', url: '/', viewport: { width: 390, height: 844 }, fullPage: false, isMobile: true },
 ];
 
 await mkdir(OUT, { recursive: true });
