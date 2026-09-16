@@ -27,8 +27,14 @@ export const shared = {
       contact: 'Contact',
       catList: ['PLC & Controllers', 'Servo Motors & Drives', 'Sensors & Switches', 'HMI & Panels'],
       more: 'Full catalogue on request',
-      contactList: ['Mong Kok, Kowloon', '+852 0000 0000', 'sales@example.hk', 'WhatsApp · WeChat'],
-      reg: '© 2026. HK Business Registration in good standing.',
+      contactList: [
+        'Room 8, S-V, 6/F, Valiant Industrial Centre',
+        '2-12 Au Pui Wan Street, Fo Tan',
+        'Hong Kong',
+        'sales@example.hk',
+        'WeChat',
+      ],
+      reg: '© 2026 Cheng Trading Limited. Hong Kong Business Registration No. 78886987.',
     },
   },
   'zh-CN': {
@@ -52,8 +58,16 @@ export const shared = {
       contact: '联系',
       catList: ['PLC 与控制器', '伺服电机与驱动', '传感器与开关', 'HMI 与面板'],
       more: '完整目录可索取',
-      contactList: ['九龙旺角', '+852 0000 0000', 'sales@example.hk', 'WhatsApp · WeChat'],
-      reg: '© 2026。香港商业登记良好。',
+      contactList: [
+        /* The registered address stays in English: Hong Kong post and couriers
+           read it, and we have no official Chinese rendering from the client. */
+        'Room 8, S-V, 6/F, Valiant Industrial Centre',
+        '2-12 Au Pui Wan Street, Fo Tan',
+        '香港',
+        'sales@example.hk',
+        '微信',
+      ],
+      reg: '© 2026 Cheng Trading Limited。香港商业登记号 78886987。',
     },
   },
 } as const;

@@ -29,10 +29,18 @@ GROUPS = [
                                       # Quality is high and -sharp_yuv is on because the
                                       # headline is baked into these photographs; text
                                       # edges are the first thing WebP softens.
+    ('hero/hero_*_zh.png', 1920, 86), # the same four frames with 简体中文 headlines,
+                                      # served to /zh-cn. Same reasoning, and CJK
+                                      # strokes are finer than Latin ones.
     ('categories/*.jpeg',  600, 80),  # 286px card at desktop, object-fit: contain
     ('industries/*.jpeg',  700, 80),  # 300x420 slide, object-fit: cover
     ('global_supply_last.jpg', 1400, 80),  # ~700px column, multiply blend
 ]
+
+# Copied byte for byte, not transcoded. The WeChat QR is 700px of flat black on
+# white: PNG already beats every WebP setting here, and re-encoding a QR is how
+# you end up with modules a phone camera cannot resolve.
+COPY = ['wechat-qr.png']
 
 def main():
     if not SRC.is_dir():
@@ -51,9 +59,16 @@ def main():
             b, a = src.stat().st_size, dst.stat().st_size
             before, after, built = before + b, after + a, built + 1
             print(f'  {str(src.relative_to(SRC)):<34} {b/1024:7.0f} KB → {a/1024:6.0f} KB')
+    for name in COPY:
+        src, dst = SRC / name, OUT / name
+        dst.write_bytes(src.read_bytes())
+        before, after, built = before + src.stat().st_size, after + dst.stat().st_size, built + 1
+        print(f'  {name:<34} {src.stat().st_size/1024:7.0f} KB → {dst.stat().st_size/1024:6.0f} KB  (copied)')
+
     unused = sorted(p.relative_to(SRC) for p in SRC.rglob('*')
                     if p.is_file() and p.suffix.lower() in {'.jpg', '.jpeg', '.png'}
-                    and not (OUT / p.relative_to(SRC).with_suffix('.webp')).exists())
+                    and not (OUT / p.relative_to(SRC).with_suffix('.webp')).exists()
+                    and str(p.relative_to(SRC)) not in COPY)
     print(f'\nbuilt {built} images: {before/1048576:.1f} MB → {after/1024:.0f} KB '
           f'({100 - after / before * 100:.1f}% smaller)')
     if unused:

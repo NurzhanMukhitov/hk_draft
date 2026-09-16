@@ -21,10 +21,8 @@ const navItems = [
   { href: `${base}#global-supply`, label: t.nav.globalSupply },
 ];
 
-const phone = '+852 0000 0000';
-const phoneHref = 'tel:+85200000000';
+/* Contact runs through email and WeChat only — no phone, no WhatsApp. */
 const email = 'sales@example.hk';
-const waHref = 'https://wa.me/85200000000';
 
 const isEN = locale === 'en';
 const currentLabel = isEN ? lang.en : lang.zh;
@@ -33,9 +31,7 @@ const currentLabel = isEN ? lang.en : lang.zh;
 <header class="site-head">
   <div class="wrap head-grid">
     <div class="head-contacts">
-      <a class="head-contact" href={phoneHref}>{phone}</a>
       <a class="head-contact" href={`mailto:${email}`}>{email}</a>
-      <a class="head-contact head-contact--wa" href={waHref} target="_blank" rel="noopener">WhatsApp</a>
     </div>
 
     <a class="logo-placeholder" href={base} aria-label={locale === 'en' ? 'Home' : '主页'}>LOGO HERE</a>
@@ -88,9 +84,7 @@ const currentLabel = isEN ? lang.en : lang.zh;
   <nav id="mobile-nav" class="mobile-nav" aria-label="Main navigation">
     {navItems.map((n) => <a href={n.href}>{n.label}</a>)}
     <div class="mobile-contacts">
-      <a href={phoneHref}>{phone}</a>
       <a href={`mailto:${email}`}>{email}</a>
-      <a href={waHref} target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </nav>
 </header>

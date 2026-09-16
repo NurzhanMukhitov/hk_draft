@@ -1,6 +1,7 @@
 ---
 /**
- * Hero — full-width photo carousel (text baked into the slides).
+ * Hero — full-width photo carousel (headline baked into the slides,
+ * which is why the images are localised rather than the markup).
  *
  * The controls are keyboard-operable and announced: the dots are real
  * buttons with names, and the slideshow can be stopped without a mouse
@@ -16,12 +17,12 @@ interface Props {
 const { locale } = Astro.props;
 const t = home[locale].hero.carousel;
 
-const heroSlides = [
-  asset('/images/hero/hero_01.webp'),
-  asset('/images/hero/hero_02.webp'),
-  asset('/images/hero/hero_03.webp'),
-  asset('/images/hero/hero_04.webp'),
-];
+/* The headline is part of the photograph, so the slide set is per locale:
+   the 简体中文 frames are the same four compositions with Chinese headlines.
+   Swap both sets together — index 2 must stay the same frame in both. */
+const heroSlides = ['01', '02', '03', '04'].map((n) =>
+  asset(`/images/hero/hero_${n}${locale === 'zh-CN' ? '_zh' : ''}.webp`)
+);
 
 const slideLabel = (i: number) =>
   t.slide.replace('{n}', String(i + 1)).replace('{total}', String(heroSlides.length));

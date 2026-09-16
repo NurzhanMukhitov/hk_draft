@@ -48,16 +48,22 @@ credible.
 - Astro 5, static output, no backend. Deployed to GitHub Pages under `/hk_draft`,
   built from `site/`. Nothing on the site can accept and process a form submission
   server-side.
-- Contact mechanism (decided 2026-09-16): messengers and direct channels only —
-  WhatsApp, WeChat, phone, email. **No RFQ form.** The `Quick RFQ` section was
-  deliberately removed. Do not reintroduce a form as a "conversion improvement".
+- Contact mechanism (decided 2026-09-16, narrowed the same day): **email and
+  WeChat only.** No phone number, no WhatsApp, and **no RFQ form** — the
+  `Quick RFQ` section was deliberately removed. Do not reintroduce a form as a
+  "conversion improvement", and do not re-add a phone or WhatsApp affordance.
 - i18n dictionary in `site/src/i18n/dict.ts`; every string ships in both locales.
 - Self-hosted IBM Plex (Serif / Sans / Mono) + IBM Plex Sans SC in `site/public/fonts/`.
 - Catalogue data is static TypeScript (`site/src/data/catalogue.ts`), not a database.
-- **Undecided:** the company name. The public build currently carries a `LOGO HERE`
-  placeholder; the earlier `AxisParts` name was deliberately stripped from metadata,
-  footer, and assets. Do not invent a name, wordmark, or tagline. Naming and logo
-  must stay swappable in markup and CSS.
+- The company is **Cheng Trading Limited**, Hong Kong Business Registration No.
+  78886987, registered at Room 8, S-V, 6/F, Valiant Industrial Centre, 2-12 Au Pui
+  Wan Street, Fo Tan, Hong Kong (confirmed by the client 2026-09-16, taken from
+  their invoice). The earlier `AxisParts` name was a proposal and is dead.
+- **Undecided:** the wordmark. The build still carries a `LOGO HERE` placeholder in
+  the header and footer. The name is known, the logo is not — do not invent one, and
+  keep the logo slot swappable in markup and CSS.
+- **Undecided:** the public email address. `sales@example.hk` is still a placeholder
+  and the client will supply the real one.
 
 ## Brand Commitments
 
@@ -82,17 +88,25 @@ Real:
   Electric, Omron, Fanuc, Allen-Bradley / Rockwell, Yaskawa, Delta Electronics,
   Honeywell, Bosch Rexroth, Panasonic) — brief-sourced product scope; the "1,000+ more"
   count is not verified.
-- Imagery: category and industry photographs in `site/public/images/`, hero candidates
-  in `бриф/new img/`. Explicitly placeholder-grade; final images come later.
+- Imagery: category and industry photographs, plus two full hero sets — the same
+  four compositions with English and 简体中文 headlines baked in, supplied by the
+  client 2026-09-16. Masters in `site/images-src/`, built to `site/public/images/`.
+  The category and industry photographs remain placeholder-grade; the hero sets
+  are the client's own.
 - Logo candidates: `бриф/logos/v1_compass.svg`, `v2_hub.svg`, `v3_caps.svg`,
   `v3_stacked.svg` — drawn for the discarded `AxisParts` name.
 - Incumbent visual system exported from the AxisParts design handoff:
   `site/src/styles/` and `бриф/handoff/axisparts-design-system/`.
 
+- Company identity, supplied by the client from their invoice: legal name,
+  business registration number, and registered address (see Capabilities above).
+- The WeChat QR code, supplied by the client, at
+  `site/public/images/wechat-qr.png`.
+
 Absent — must not be fabricated:
-- Real company name, legal entity, business registration number.
-- Real contact details. `sales@example.hk`, `+852 0000 0000`, WeChat `company_hk`
-  and the Mong Kok address are placeholders.
+- The public email address. `sales@example.hk` is a placeholder until the client
+  supplies the real one; the previously shown phone number and WhatsApp link were
+  invented and have been removed.
 - Customers, testimonials, case studies, press, certifications, stock levels,
   lead times, prices, founding year.
 
@@ -102,8 +116,9 @@ Absent — must not be fabricated:
    space outranks a plausible-looking number.
 2. **The part number is the conversation.** Everything on the site exists to get a
    buyer from "I have a reference" to "I have sent it to a human".
-3. **Messenger-first, form-never.** The path to contact is a channel the buyer
-   already uses daily. Contact affordances must be reachable from any section.
+3. **Two channels, no form.** Email and WeChat are the whole contact surface.
+   Both must be reachable from any section; nothing else gets added to compete
+   with them.
 4. **Chinese is a first language here, not a locale toggle.** Layout, typography,
    and copy length have to work in 简体中文 without degrading.
 5. **Placeholder honesty.** While the name, contacts, and figures are unresolved,
