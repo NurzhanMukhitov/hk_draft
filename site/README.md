@@ -7,7 +7,11 @@ Bilingual B2B multibrand industrial supply website. Lead-gen via RFQ form.
 - **Astro 5** — static-first, fast cold loads in mainland China
 - **React islands** — for the interactive RFQ form and (later) Catalogue filters
 - **CSS** — design tokens + components imported as-is from the AxisParts Design System handoff (`src/styles/colors_and_type.css`, `components.css`, `kit.css`, `fonts.css`)
-- **Fonts** — IBM Plex Serif / Sans / Mono + IBM Plex Sans SC (简体中文), self-hosted in `public/fonts/`
+- **Fonts** — IBM Plex Serif / Sans / Mono + IBM Plex Sans SC (简体中文), self-hosted in
+  `public/fonts/` as subset WOFF2 (328 KB for all 16 faces). The TTF masters live in
+  `fonts-src/` and are never deployed. After changing copy — especially 简体中文 —
+  regenerate with `python3 scripts/build-fonts.py` (needs `fonttools` and `brotli`),
+  or new characters will fall back to a system font.
 - **i18n** — EN (default, `/`) + 简体中文 (`/zh-cn/`)
 
 ## Dev
