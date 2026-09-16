@@ -19,14 +19,14 @@ export interface Category {
 }
 
 export const CATEGORIES: Category[] = [
-  { id: 'plc',     en: 'PLC & Controllers',       zh: 'PLC 与控制器',   img: asset('/images/categories/01_plc_controllers.jpeg') },
-  { id: 'servo',   en: 'Servo Motors & Drives',   zh: '伺服电机与驱动', img: asset('/images/categories/02_servo_drives.jpeg') },
-  { id: 'sensors', en: 'Sensors & Switches',      zh: '传感器与开关',   img: asset('/images/categories/03_sensors_switches.jpeg') },
-  { id: 'hmi',     en: 'HMI & Panels',            zh: 'HMI 与面板',     img: asset('/images/categories/04_hmi_panels.jpeg') },
-  { id: 'power',   en: 'Power Supplies',          zh: '电源',           img: asset('/images/categories/05_power_supplies.jpeg') },
-  { id: 'robots',  en: 'Industrial Robots',       zh: '工业机器人',     img: asset('/images/categories/06_industrial_robots.jpeg') },
-  { id: 'cnc',     en: 'CNC Components',          zh: 'CNC 组件',       img: asset('/images/categories/07_cnc_components.jpeg') },
-  { id: 'spares',  en: 'Automation Spare Parts',  zh: '自动化备件',     img: asset('/images/categories/08_spare_parts.jpeg') },
+  { id: 'plc',     en: 'PLC & Controllers',       zh: 'PLC 与控制器',   img: asset('/images/categories/01_plc_controllers.webp') },
+  { id: 'servo',   en: 'Servo Motors & Drives',   zh: '伺服电机与驱动', img: asset('/images/categories/02_servo_drives.webp') },
+  { id: 'sensors', en: 'Sensors & Switches',      zh: '传感器与开关',   img: asset('/images/categories/03_sensors_switches.webp') },
+  { id: 'hmi',     en: 'HMI & Panels',            zh: 'HMI 与面板',     img: asset('/images/categories/04_hmi_panels.webp') },
+  { id: 'power',   en: 'Power Supplies',          zh: '电源',           img: asset('/images/categories/05_power_supplies.webp') },
+  { id: 'robots',  en: 'Industrial Robots',       zh: '工业机器人',     img: asset('/images/categories/06_industrial_robots.webp') },
+  { id: 'cnc',     en: 'CNC Components',          zh: 'CNC 组件',       img: asset('/images/categories/07_cnc_components.webp') },
+  { id: 'spares',  en: 'Automation Spare Parts',  zh: '自动化备件',     img: asset('/images/categories/08_spare_parts.webp') },
 ];
 
 export interface Industry {
@@ -39,14 +39,14 @@ export interface Industry {
 }
 
 export const INDUSTRIES: Industry[] = [
-  { id: 'manufacturing',  en: 'Manufacturing',  zh: '制造业',       enSub: 'Contract manufacturers · OEM lines · assembly cells', zhSub: '代工厂 · OEM 产线 · 装配车间',   img: asset('/images/industries/01_manufacturing.jpeg') },
-  { id: 'automation',     en: 'Automation',     zh: '自动化',       enSub: 'System integrators · motion control · robotics cells', zhSub: '系统集成 · 运动控制 · 机器人单元', img: asset('/images/industries/02_automation.jpeg') },
-  { id: 'electronics',    en: 'Electronics',    zh: '电子',         enSub: 'SMT lines · semiconductor · fabrication tooling', zhSub: 'SMT 产线 · 半导体 · 制造工装',   img: asset('/images/industries/03_electronics.jpeg') },
-  { id: 'energy',         en: 'Energy',         zh: '能源',         enSub: 'Grid utilities · substation gear · renewables', zhSub: '电网公用 · 变电设备 · 可再生能源', img: asset('/images/industries/04_energy.jpeg') },
-  { id: 'oilgas',         en: 'Oil & Gas',      zh: '石油与天然气', enSub: 'Upstream · downstream · process instrumentation', zhSub: '上游 · 下游 · 过程仪表',         img: asset('/images/industries/05_oil_gas.jpeg') },
-  { id: 'mining',         en: 'Mining',         zh: '采矿',         enSub: 'Open-pit and underground · materials handling', zhSub: '露天与地下 · 物料搬运',          img: asset('/images/industries/06_mining.jpeg') },
-  { id: 'marine',         en: 'Marine',         zh: '船舶',         enSub: 'Shipyards · port equipment · offshore', zhSub: '船厂 · 港口设备 · 海洋工程',     img: asset('/images/industries/07_marine.jpeg') },
-  { id: 'infrastructure', en: 'Infrastructure', zh: '基础设施',     enSub: 'Rail · water · public works · construction', zhSub: '轨道 · 水务 · 市政工程',         img: asset('/images/industries/08_infrastructure.jpeg') },
+  { id: 'manufacturing',  en: 'Manufacturing',  zh: '制造业',       enSub: 'Contract manufacturers · OEM lines · assembly cells', zhSub: '代工厂 · OEM 产线 · 装配车间',   img: asset('/images/industries/01_manufacturing.webp') },
+  { id: 'automation',     en: 'Automation',     zh: '自动化',       enSub: 'System integrators · motion control · robotics cells', zhSub: '系统集成 · 运动控制 · 机器人单元', img: asset('/images/industries/02_automation.webp') },
+  { id: 'electronics',    en: 'Electronics',    zh: '电子',         enSub: 'SMT lines · semiconductor · fabrication tooling', zhSub: 'SMT 产线 · 半导体 · 制造工装',   img: asset('/images/industries/03_electronics.webp') },
+  { id: 'energy',         en: 'Energy',         zh: '能源',         enSub: 'Grid utilities · substation gear · renewables', zhSub: '电网公用 · 变电设备 · 可再生能源', img: asset('/images/industries/04_energy.webp') },
+  { id: 'oilgas',         en: 'Oil & Gas',      zh: '石油与天然气', enSub: 'Upstream · downstream · process instrumentation', zhSub: '上游 · 下游 · 过程仪表',         img: asset('/images/industries/05_oil_gas.webp') },
+  { id: 'mining',         en: 'Mining',         zh: '采矿',         enSub: 'Open-pit and underground · materials handling', zhSub: '露天与地下 · 物料搬运',          img: asset('/images/industries/06_mining.webp') },
+  { id: 'marine',         en: 'Marine',         zh: '船舶',         enSub: 'Shipyards · port equipment · offshore', zhSub: '船厂 · 港口设备 · 海洋工程',     img: asset('/images/industries/07_marine.webp') },
+  { id: 'infrastructure', en: 'Infrastructure', zh: '基础设施',     enSub: 'Rail · water · public works · construction', zhSub: '轨道 · 水务 · 市政工程',         img: asset('/images/industries/08_infrastructure.webp') },
 ];
 
 export interface Step {
