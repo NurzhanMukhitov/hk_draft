@@ -55,11 +55,23 @@ a{color:inherit;text-decoration:none;}
 .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 450ms ease;overflow:hidden;}
 .hero-slide.is-active{opacity:1;z-index:1;}
 .hero-slide img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
-.hero-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:8px;}
-.hero-dot{width:8px;height:8px;border:0;border-radius:50%;background:rgba(255,255,255,0.45);cursor:pointer;padding:0;transition:background var(--dur-micro) var(--ease),transform var(--dur-micro) var(--ease);}
-.hero-dot.is-active{background:var(--accent-gold);transform:scale(1.15);}
+/* Slideshow controls — one cluster, always visible, on a navy scrim so the
+   dots and the pause button keep contrast over a bright frame. */
+.hero-controls{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:3;display:flex;align-items:center;gap:var(--space-2);padding:4px 10px 4px 4px;border-radius:999px;background:rgba(0,61,122,0.55);}
+.hero-toggle{display:flex;align-items:center;justify-content:center;width:28px;height:28px;padding:0;border:0;border-radius:50%;background:transparent;color:rgba(255,255,255,0.75);cursor:pointer;transition:color var(--dur-micro) var(--ease),background var(--dur-micro) var(--ease);}
+.hero-toggle:hover{color:#fff;background:rgba(255,255,255,0.12);}
+.hero-toggle:focus-visible{outline:2px solid var(--accent-gold);outline-offset:2px;}
+.hero-toggle svg{width:16px;height:16px;display:block;}
+.hero-dots{display:flex;gap:2px;}
+/* 8px dot, 24px target — the visual size is the ::before, not the button. */
+.hero-dot{position:relative;width:24px;height:24px;border:0;padding:0;background:none;cursor:pointer;}
+.hero-dot::before{content:"";position:absolute;top:50%;left:50%;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:rgba(255,255,255,0.55);transition:background var(--dur-micro) var(--ease),transform var(--dur-micro) var(--ease);}
+.hero-dot:hover::before{background:rgba(255,255,255,0.85);}
+.hero-dot.is-active::before{background:var(--accent-gold);transform:scale(1.15);}
+.hero-dot:focus-visible{outline:2px solid var(--accent-gold);outline-offset:0;border-radius:50%;}
 .hero-nav{position:absolute;inset:0;z-index:2;pointer-events:none;}
-.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;background:transparent;color:rgba(255,255,255,0.65);font-size:22px;line-height:1;cursor:pointer;border-radius:50%;pointer-events:auto;opacity:0;transition:opacity var(--dur-component) var(--ease),color var(--dur-component) var(--ease),transform var(--dur-micro) var(--ease);text-shadow:0 1px 12px rgba(0,0,0,0.45);}
+.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;background:transparent;color:rgba(255,255,255,0.75);cursor:pointer;border-radius:50%;pointer-events:auto;opacity:0;transition:opacity var(--dur-component) var(--ease),color var(--dur-component) var(--ease),transform var(--dur-micro) var(--ease);filter:drop-shadow(0 1px 12px rgba(0,0,0,0.45));}
+.hero-arrow svg{width:24px;height:24px;display:block;}
 .hero-arrow--prev{left:20px;}
 .hero-arrow--next{right:20px;}
 .hero-photo:hover .hero-arrow,.hero-arrow:focus-visible{opacity:1;}
@@ -330,6 +342,11 @@ a{color:inherit;text-decoration:none;}
   .lang-switch__menu{min-width:min(200px,calc(100vw - 40px));}
   .hero-arrow--prev{left:12px;}
   .hero-arrow--next{right:12px;}
+  /* The hero is only ~130px tall at phone width; the control cluster tightens
+     so it does not own a third of it. Dot targets stay 24px. */
+  .hero-controls{bottom:8px;gap:0;padding:2px 6px 2px 2px;}
+  .hero-toggle{width:24px;height:24px;}
+  .hero-toggle svg{width:14px;height:14px;}
   .carousel-track{padding-left:24px;padding-right:24px;gap:var(--space-4);}
   .ind-slide{flex-basis:260px;height:380px;}
   .section{padding:var(--space-7) 0;}

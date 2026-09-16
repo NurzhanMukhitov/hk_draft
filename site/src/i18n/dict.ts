@@ -68,6 +68,15 @@ export const home = {
       lede: 'We supply original and replacement industrial equipment and spare parts from leading global brands.',
       cta: 'Request a part number',
       sec: 'View brand list',
+      carousel: {
+        region: 'Hong Kong port and industrial photography',
+        controls: 'Slideshow controls',
+        prev: 'Previous slide',
+        next: 'Next slide',
+        pause: 'Pause the slideshow',
+        play: 'Play the slideshow',
+        slide: 'Slide {n} of {total}',
+      },
     },
     categories: {
       label: 'Categories',
@@ -105,6 +114,15 @@ export const home = {
       lede: '我们供应来自全球领先品牌的原厂及替代工业设备与备件。',
       cta: '提交零件号',
       sec: '查看品牌列表',
+      carousel: {
+        region: '香港港口与工业实景图',
+        controls: '轮播控件',
+        prev: '上一张',
+        next: '下一张',
+        pause: '暂停轮播',
+        play: '播放轮播',
+        slide: '第 {n} 张，共 {total} 张',
+      },
     },
     categories: {
       label: '分类',

@@ -1,8 +1,20 @@
 ---
 /**
- * Hero — full-width photo carousel (text baked into slides).
+ * Hero — full-width photo carousel (text baked into the slides).
+ *
+ * The controls are keyboard-operable and announced: the dots are real
+ * buttons with names, and the slideshow can be stopped without a mouse
+ * (WCAG 2.2.2). Auto-rotation never starts under prefers-reduced-motion;
+ * the play button is how a visitor opts in.
  */
 import { asset } from '../../lib/paths';
+import { home, type Locale } from '../../i18n/dict';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = home[locale].hero.carousel;
 
 const heroSlides = [
   asset('/images/hero/hero_01.webp'),
@@ -10,13 +22,23 @@ const heroSlides = [
   asset('/images/hero/hero_03.webp'),
   asset('/images/hero/hero_04.webp'),
 ];
+
+const slideLabel = (i: number) =>
+  t.slide.replace('{n}', String(i + 1)).replace('{total}', String(heroSlides.length));
+
+const chevron = (d: string) =>
+  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
 ---
 
-<section class="hero">
+<section class="hero" aria-roledescription="carousel" aria-label={t.region}>
   <div class="hero-photo" data-hero-carousel>
     <div class="hero-slides">
       {heroSlides.map((src, i) => (
-        <div class={`hero-slide${i === 0 ? ' is-active' : ''}`} data-hero-slide>
+        <div
+          class={`hero-slide${i === 0 ? ' is-active' : ''}`}
+          data-hero-slide
+          aria-hidden={i === 0 ? undefined : 'true'}
+        >
           <img
             src={src}
             alt=""
@@ -27,19 +49,48 @@ const heroSlides = [
         </div>
       ))}
     </div>
-    <div class="hero-dots" aria-hidden="true">
-      {heroSlides.map((_, i) => (
-        <button
-          type="button"
-          class={`hero-dot${i === 0 ? ' is-active' : ''}`}
-          data-hero-dot={i}
-          aria-label={`Slide ${i + 1}`}
-        />
-      ))}
-    </div>
+
     <div class="hero-nav">
-      <button type="button" class="hero-arrow hero-arrow--prev" data-hero-prev aria-label="Previous slide">←</button>
-      <button type="button" class="hero-arrow hero-arrow--next" data-hero-next aria-label="Next slide">→</button>
+      <button
+        type="button"
+        class="hero-arrow hero-arrow--prev"
+        data-hero-prev
+        aria-label={t.prev}
+        set:html={chevron('m15 18-6-6 6-6')}
+      />
+      <button
+        type="button"
+        class="hero-arrow hero-arrow--next"
+        data-hero-next
+        aria-label={t.next}
+        set:html={chevron('m9 18 6-6-6-6')}
+      />
+    </div>
+
+    <div class="hero-controls" role="group" aria-label={t.controls}>
+      <button
+        type="button"
+        class="hero-toggle"
+        data-hero-toggle
+        data-label-pause={t.pause}
+        data-label-play={t.play}
+        aria-label={t.pause}
+      >
+        <span class="hero-toggle-ico" data-hero-toggle-ico set:html={
+          '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="5" width="3.5" height="14" rx="0.5"/><rect x="13.5" y="5" width="3.5" height="14" rx="0.5"/></svg>'
+        } />
+      </button>
+      <div class="hero-dots">
+        {heroSlides.map((_, i) => (
+          <button
+            type="button"
+            class={`hero-dot${i === 0 ? ' is-active' : ''}`}
+            data-hero-dot={i}
+            aria-label={slideLabel(i)}
+            aria-current={i === 0 ? 'true' : undefined}
+          />
+        ))}
+      </div>
     </div>
   </div>
   <div class="hero-line" aria-hidden="true"></div>
@@ -53,41 +104,79 @@ const heroSlides = [
     const dots = [...root.querySelectorAll('[data-hero-dot]')];
     const prev = root.querySelector('[data-hero-prev]');
     const next = root.querySelector('[data-hero-next]');
+    const toggle = root.querySelector('[data-hero-toggle]');
+    const toggleIco = root.querySelector('[data-hero-toggle-ico]');
     if (!slides.length) return;
 
-    let index = 0;
-    let timer;
+    const ICON_PAUSE =
+      '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="5" width="3.5" height="14" rx="0.5"/><rect x="13.5" y="5" width="3.5" height="14" rx="0.5"/></svg>';
+    const ICON_PLAY =
+      '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.2v13.6a.5.5 0 0 0 .77.42l10.2-6.8a.5.5 0 0 0 0-.84L8.77 4.78A.5.5 0 0 0 8 5.2z"/></svg>';
+
     const INTERVAL = 3000;
+    const calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let index = 0;
+    let timer = null;
+    /* Playing is the intent, not the timer state: hovering pauses the timer
+       without changing what the visitor asked for. */
+    let playing = !calm.matches;
 
     const show = (nextIndex) => {
       index = (nextIndex + slides.length) % slides.length;
-      slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
-      dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+      slides.forEach((s, i) => {
+        const active = i === index;
+        s.classList.toggle('is-active', active);
+        if (active) s.removeAttribute('aria-hidden');
+        else s.setAttribute('aria-hidden', 'true');
+      });
+      dots.forEach((d, i) => {
+        d.classList.toggle('is-active', i === index);
+        if (i === index) d.setAttribute('aria-current', 'true');
+        else d.removeAttribute('aria-current');
+      });
     };
 
-    const start = () => {
+    const stopTimer = () => {
       clearInterval(timer);
-      timer = setInterval(() => show(index + 1), INTERVAL);
+      timer = null;
+    };
+    const startTimer = () => {
+      stopTimer();
+      if (playing) timer = setInterval(() => show(index + 1), INTERVAL);
+    };
+
+    const setPlaying = (value) => {
+      playing = value;
+      if (toggle) {
+        const label = toggle.dataset[value ? 'labelPause' : 'labelPlay'];
+        toggle.setAttribute('aria-label', label);
+      }
+      if (toggleIco) toggleIco.innerHTML = value ? ICON_PAUSE : ICON_PLAY;
+      startTimer();
     };
 
     dots.forEach((dot) => {
       dot.addEventListener('click', () => {
         show(Number(dot.dataset.heroDot));
-        start();
+        startTimer();
       });
     });
+    prev?.addEventListener('click', () => { show(index - 1); startTimer(); });
+    next?.addEventListener('click', () => { show(index + 1); startTimer(); });
+    toggle?.addEventListener('click', () => setPlaying(!playing));
 
-    prev?.addEventListener('click', () => {
-      show(index - 1);
-      start();
+    /* Pause while the visitor is reading or tabbing through, resume after. */
+    root.addEventListener('mouseenter', stopTimer);
+    root.addEventListener('mouseleave', startTimer);
+    root.addEventListener('focusin', stopTimer);
+    root.addEventListener('focusout', (e) => {
+      if (!root.contains(e.relatedTarget)) startTimer();
     });
-    next?.addEventListener('click', () => {
-      show(index + 1);
-      start();
+    document.addEventListener('visibilitychange', () => {
+      document.hidden ? stopTimer() : startTimer();
     });
+    calm.addEventListener?.('change', (e) => setPlaying(!e.matches));
 
-    root.addEventListener('mouseenter', () => clearInterval(timer));
-    root.addEventListener('mouseleave', start);
-    start();
+    setPlaying(playing);
   })();
 </script>
