@@ -1,0 +1,565 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-16T13:25:23+00:00",
+  "title": "Design System: HK Industrial Sourcing Desk",
+  "extensions": {
+    "colorMeta": {
+      "navy": {
+        "role": "primary",
+        "displayName": "Trade Navy",
+        "canonical": "#003D7A",
+        "tonalRamp": [
+          "#00264C",
+          "#004387",
+          "#0061C1",
+          "#007EFB",
+          "#379BFF",
+          "#71B8FF",
+          "#ABD5FF",
+          "#E5F2FF"
+        ]
+      },
+      "navy-deep": {
+        "role": "primary",
+        "displayName": "Deep Navy",
+        "canonical": "#002A52",
+        "tonalRamp": [
+          "#00274C",
+          "#004587",
+          "#0063C1",
+          "#0081FB",
+          "#379DFF",
+          "#71BAFF",
+          "#ABD6FF",
+          "#E5F3FF"
+        ]
+      },
+      "navy-hover": {
+        "role": "primary",
+        "displayName": "Navy Hover",
+        "canonical": "#0B2A52",
+        "tonalRamp": [
+          "#092343",
+          "#103D77",
+          "#1757AA",
+          "#1E72DE",
+          "#4E91E7",
+          "#82B1EE",
+          "#B5D1F5",
+          "#E9F1FC"
+        ]
+      },
+      "gold": {
+        "role": "secondary",
+        "displayName": "Signal Gold",
+        "canonical": "#FFC107",
+        "tonalRamp": [
+          "#4C3900",
+          "#876500",
+          "#C19100",
+          "#FBBD00",
+          "#FFCD37",
+          "#FFDB71",
+          "#FFEAAB",
+          "#FFF9E6"
+        ]
+      },
+      "gold-on-light": {
+        "role": "secondary",
+        "displayName": "Document Gold",
+        "canonical": "#B8860B",
+        "tonalRamp": [
+          "#483504",
+          "#7F5D08",
+          "#B6850B",
+          "#EDAD0E",
+          "#F4C042",
+          "#F7D379",
+          "#FAE5B0",
+          "#FEF7E7"
+        ]
+      },
+      "gold-hover": {
+        "role": "secondary",
+        "displayName": "Gold Hover",
+        "canonical": "#E0A800",
+        "tonalRamp": [
+          "#4C3900",
+          "#876500",
+          "#C19100",
+          "#FBBD00",
+          "#FFCD37",
+          "#FFDB71",
+          "#FFEAAB",
+          "#FFF9E5"
+        ]
+      },
+      "cta-red": {
+        "role": "tertiary",
+        "displayName": "Action Red",
+        "canonical": "#DC2626",
+        "tonalRamp": [
+          "#420B0B",
+          "#741313",
+          "#A61B1B",
+          "#D82323",
+          "#E35252",
+          "#EB8585",
+          "#F3B7B7",
+          "#FBE9E9"
+        ]
+      },
+      "cta-red-hover": {
+        "role": "tertiary",
+        "displayName": "Action Red Pressed",
+        "canonical": "#B91C1C",
+        "tonalRamp": [
+          "#420A0A",
+          "#751212",
+          "#A81919",
+          "#DA2121",
+          "#E55151",
+          "#EC8484",
+          "#F4B6B6",
+          "#FCE9E9"
+        ]
+      },
+      "cta-red-active": {
+        "role": "tertiary",
+        "displayName": "Action Red Held",
+        "canonical": "#991B1B",
+        "tonalRamp": [
+          "#410B0B",
+          "#731414",
+          "#A41D1D",
+          "#D62626",
+          "#E15555",
+          "#EA8686",
+          "#F2B8B8",
+          "#FBE9E9"
+        ]
+      },
+      "page": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "#262626",
+          "#434343",
+          "#616161",
+          "#7E7E7E",
+          "#9B9B9B",
+          "#B8B8B8",
+          "#D5D5D5",
+          "#F2F2F2"
+        ]
+      },
+      "soft": {
+        "role": "neutral",
+        "displayName": "Soft Paper",
+        "canonical": "#F7F8FA",
+        "tonalRamp": [
+          "#1D232F",
+          "#343E53",
+          "#4A5977",
+          "#61749B",
+          "#8493B2",
+          "#A8B3C8",
+          "#CBD2DF",
+          "#EFF1F5"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Document Ink",
+        "canonical": "#1A1A1A",
+        "tonalRamp": [
+          "#262626",
+          "#434343",
+          "#616161",
+          "#7E7E7E",
+          "#9B9B9B",
+          "#B8B8B8",
+          "#D5D5D5",
+          "#F2F2F2"
+        ]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#6B7280",
+        "tonalRamp": [
+          "#23252A",
+          "#3D4149",
+          "#585E69",
+          "#727A89",
+          "#9298A4",
+          "#B2B6BE",
+          "#D1D4D9",
+          "#F1F2F3"
+        ]
+      },
+      "border-line": {
+        "role": "neutral",
+        "displayName": "Rule Grey",
+        "canonical": "#E5E7EB",
+        "tonalRamp": [
+          "#21252B",
+          "#3B404C",
+          "#545C6D",
+          "#6D788E",
+          "#8E96A8",
+          "#AFB5C1",
+          "#D0D3DB",
+          "#F1F2F4"
+        ]
+      },
+      "disabled": {
+        "role": "neutral",
+        "displayName": "Disabled Grey",
+        "canonical": "#9CA3AF",
+        "tonalRamp": [
+          "#22252A",
+          "#3C424B",
+          "#565E6B",
+          "#707A8B",
+          "#9098A5",
+          "#B0B6C0",
+          "#D1D4DA",
+          "#F1F2F4"
+        ]
+      },
+      "status-success": {
+        "role": "neutral",
+        "displayName": "Confirmation Green",
+        "canonical": "#16A34A",
+        "tonalRamp": [
+          "#09431F",
+          "#107736",
+          "#17AA4D",
+          "#1EDD65",
+          "#4EE787",
+          "#82EEAA",
+          "#B5F5CD",
+          "#E9FCF0"
+        ]
+      },
+      "status-warning": {
+        "role": "neutral",
+        "displayName": "Caution Amber",
+        "canonical": "#F59E0B",
+        "tonalRamp": [
+          "#492F03",
+          "#815305",
+          "#B97708",
+          "#F19B0A",
+          "#F7B23F",
+          "#F9C977",
+          "#FCDFAF",
+          "#FEF5E7"
+        ]
+      },
+      "text-on-navy-secondary": {
+        "role": "neutral",
+        "displayName": "On-Navy Secondary",
+        "canonical": "rgba(255,255,255,0.70)",
+        "tonalRamp": []
+      },
+      "border-on-navy": {
+        "role": "neutral",
+        "displayName": "On-Navy Rule",
+        "canonical": "rgba(255,255,255,0.10)",
+        "tonalRamp": []
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Serif headline moments of four words or fewer. Defined but unused on the current home page, whose hero bakes its type into the photography."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles, CTA band headline, product titles. Serif 600 at 40/32px."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card names, step titles, sub-headings. The scale switches from serif to sans here."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, 16px default, measure capped structurally at 480-640px."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Eyebrows, field labels, column and footer headings. 11px uppercase at 0.18em — the system's signature gesture."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Every button label: 14px uppercase at 0.06em."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Anything a buyer would copy — part numbers, phones, emails, references, step numbers."
+      }
+    },
+    "shadows": [
+      {
+        "name": "menu-lift",
+        "value": "0 16px 40px rgba(10,15,30,0.12)",
+        "purpose": "Open language dropdown."
+      },
+      {
+        "name": "sheet-lift",
+        "value": "0 16px 32px rgba(10,15,30,0.10)",
+        "purpose": "Mobile navigation panel."
+      },
+      {
+        "name": "rail-lift",
+        "value": "0 12px 36px rgba(10,15,30,0.18)",
+        "purpose": "Fixed side contact rail and its hover labels. Heaviest shadow in the system."
+      },
+      {
+        "name": "focus-lift",
+        "value": "0 8px 24px rgba(10,15,30,0.08)",
+        "purpose": "Language button while its menu is open."
+      },
+      {
+        "name": "card-hover",
+        "value": "0 14px 36px rgba(10,15,30,0.08)",
+        "purpose": "Industry grid card on hover — the only shadow allowed on content."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.2,0.8,0.2,1)",
+        "purpose": "The single easing curve in the system."
+      },
+      {
+        "name": "dur-micro",
+        "value": "150ms",
+        "purpose": "Colour and border shifts, button hover."
+      },
+      {
+        "name": "dur-component",
+        "value": "200ms",
+        "purpose": "Card lift, image scale, focus transition."
+      },
+      {
+        "name": "dur-page",
+        "value": "300ms",
+        "purpose": "Side rail entrance and page-level moves."
+      },
+      {
+        "name": "reveal",
+        "value": "650ms ease-out, translateY(28px)",
+        "purpose": "Scroll entrance for sections and grids."
+      },
+      {
+        "name": "reveal-stagger",
+        "value": "50-60ms per item",
+        "purpose": "Cascade delay inside a revealed grid."
+      },
+      {
+        "name": "marquee",
+        "value": "48s linear infinite",
+        "purpose": "Industries band; pauses on hover, frozen under prefers-reduced-motion."
+      },
+      {
+        "name": "hero-fade",
+        "value": "450ms ease",
+        "purpose": "Hero carousel slide cross-fade, 3s interval."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1100px"
+      },
+      {
+        "name": "tablet",
+        "value": "980px"
+      },
+      {
+        "name": "mobile",
+        "value": "768px"
+      },
+      {
+        "name": "small",
+        "value": "560px"
+      }
+    ],
+    "container": {
+      "maxWidth": "1280px",
+      "gutter": "32px",
+      "gutterSmall": "20px"
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single call to action in a view. Never place two.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Request a part number</a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:12px 22px;border:1px solid transparent;border-radius:8px;background:var(--cta-red,#DC2626);color:#fff;font-family:var(--font-body,'IBM Plex Sans',system-ui,sans-serif);font-size:14px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background 150ms cubic-bezier(0.2,0.8,0.2,1);}.ds-btn-primary:hover{background:var(--cta-red-hover,#B91C1C);}.ds-btn-primary:active{background:var(--cta-red-active,#991B1B);}.ds-btn-primary:focus-visible{outline:2px solid var(--accent-gold,#FFC107);outline-offset:2px;}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Navy outline. Hover washes rather than fills.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">View brand list</a>",
+      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:12px 22px;border:1px solid var(--bg-navy,#003D7A);border-radius:8px;background:transparent;color:var(--bg-navy,#003D7A);font-family:var(--font-body,'IBM Plex Sans',system-ui,sans-serif);font-size:14px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background 150ms cubic-bezier(0.2,0.8,0.2,1);}.ds-btn-secondary:hover{background:rgba(0,61,122,0.05);}.ds-btn-secondary:focus-visible{outline:2px solid var(--accent-gold,#FFC107);outline-offset:2px;}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Persistent gold label above; focus shifts the border to navy instead of drawing a ring.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-pn\">Part number</label><input id=\"ds-pn\" class=\"ds-input\" type=\"text\" placeholder=\"6ES7214-1AG40-0XB0\"></div>",
+      "css": ".ds-field{max-width:380px;}.ds-field label{display:block;margin-bottom:8px;font-family:var(--font-body,'IBM Plex Sans',system-ui,sans-serif);font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent-gold-on-light,#B8860B);}.ds-input{width:100%;height:44px;padding:12px 14px;background:#fff;border:1px solid var(--border-line,#E5E7EB);border-radius:8px;font-family:var(--font-body,'IBM Plex Sans',system-ui,sans-serif);font-size:15px;color:var(--text-primary,#1A1A1A);transition:border-color 150ms cubic-bezier(0.2,0.8,0.2,1);}.ds-input::placeholder{color:var(--text-muted,#6B7280);}.ds-input:focus{border-color:var(--bg-navy,#003D7A);outline:none;}"
+    },
+    {
+      "name": "Content Card",
+      "kind": "card",
+      "refersTo": "content-card",
+      "description": "Square-cornered content surface. Border turns navy and the card lifts 4px on hover; the image scales inside a fixed frame so the card never grows.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-img\"><img src=\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='%23EEF1F5'/></svg>\" alt=\"\"></div><div class=\"ds-card-name\">PLC &amp; Controllers</div></div>",
+      "css": ".ds-card{background:#fff;border:1px solid var(--border-line,#E5E7EB);cursor:pointer;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1),border-color 200ms cubic-bezier(0.2,0.8,0.2,1),box-shadow 200ms cubic-bezier(0.2,0.8,0.2,1);}.ds-card:hover{transform:translateY(-4px);border-color:var(--bg-navy,#003D7A);box-shadow:0 14px 36px rgba(10,15,30,0.08);}.ds-card-img{aspect-ratio:3/2;overflow:hidden;border-bottom:1px solid var(--border-line,#E5E7EB);padding:16px;}.ds-card-img img{width:100%;height:100%;object-fit:contain;display:block;transition:transform 200ms cubic-bezier(0.2,0.8,0.2,1);}.ds-card:hover .ds-card-img img{transform:scale(1.04);}.ds-card-name{padding:16px 24px;font-family:var(--font-body,'IBM Plex Sans',system-ui,sans-serif);font-size:16px;font-weight:600;color:var(--text-primary,#1A1A1A);}"
+    },
+    {
+      "name": "Section Header",
+      "kind": "custom",
+      "refersTo": "section-label",
+      "description": "The signature section opener: solid gold label block plus a 24px gold rule, with a serif lede beneath. The gold fill is a client-approved exception.",
+      "html": "<div class=\"ds-sec-header\"><span class=\"ds-eyebrow\">Categories</span><span class=\"ds-gold-rule\"></span></div><p class=\"ds-lede\">Browse by category or send a part number directly.</p>",
+      "css": ".ds-sec-header{display:flex;flex-direction:column;align-items:flex-start;gap:12px;}.ds-eyebrow{display:inline-block;padding:6px 12px;background:var(--accent-gold,#FFC107);color:var(--text-primary,#1A1A1A);font-family:var(--font-body,'IBM Plex Sans',system-ui,sans-serif);font-size:11px;font-weight:500;line-height:1.4;letter-spacing:0.18em;text-transform:uppercase;}.ds-gold-rule{width:24px;height:1px;background:var(--accent-gold,#FFC107);}.ds-lede{margin-top:16px;max-width:600px;font-family:var(--font-display,'IBM Plex Serif',Georgia,serif);font-size:22px;font-weight:500;line-height:1.4;color:var(--text-primary,#1A1A1A);}"
+    },
+    {
+      "name": "Brand Cell",
+      "kind": "card",
+      "refersTo": "brand-cell",
+      "description": "Logo-ready cell with a serif wordmark fallback. Logos render greyscale and return to colour on hover. Becomes a pill chip below 768px.",
+      "html": "<div class=\"ds-brand-cell\"><span class=\"ds-brand-wordmark\">Schneider Electric</span></div>",
+      "css": ".ds-brand-cell{display:flex;align-items:center;justify-content:center;min-height:88px;padding:24px;background:#fff;border:1px solid var(--border-line,#E5E7EB);border-radius:12px;transition:border-color 200ms cubic-bezier(0.2,0.8,0.2,1),transform 200ms cubic-bezier(0.2,0.8,0.2,1);}.ds-brand-cell:hover{border-color:var(--bg-navy,#003D7A);transform:translateY(-2px);}.ds-brand-wordmark{font-family:var(--font-display,'IBM Plex Serif',Georgia,serif);font-size:16px;font-weight:500;line-height:1.2;text-align:center;color:var(--text-primary,#1A1A1A);}"
+    },
+    {
+      "name": "Freight Pill",
+      "kind": "chip",
+      "refersTo": "freight-pill",
+      "description": "Fully round chip pairing an 18px inline icon with a 13px label. One of only two pill shapes in the system.",
+      "html": "<div class=\"ds-pill\"><span class=\"ds-pill-ico\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z\"/></svg></span><span class=\"ds-pill-label\">Air</span></div>",
+      "css": ".ds-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:#fff;border:1px solid var(--border-line,#E5E7EB);border-radius:999px;transition:border-color 200ms cubic-bezier(0.2,0.8,0.2,1);}.ds-pill:hover{border-color:var(--bg-navy,#003D7A);}.ds-pill-ico{display:flex;color:var(--bg-navy,#003D7A);}.ds-pill-ico svg{width:18px;height:18px;display:block;}.ds-pill-label{font-family:var(--font-body,'IBM Plex Sans',system-ui,sans-serif);font-size:13px;font-weight:600;color:var(--text-primary,#1A1A1A);}"
+    },
+    {
+      "name": "Side Rail Item",
+      "kind": "nav",
+      "refersTo": "side-rail-item",
+      "description": "One tile of the fixed right-edge contact rail. Hover scales in a 3px gold bar, turns the icon gold, and slides the real value out to the left.",
+      "html": "<div class=\"ds-rail\"><a class=\"ds-rail-item\" href=\"tel:+85200000000\"><span class=\"ds-rail-ico\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z\"/></svg></span><span class=\"ds-rail-pop\">+852 0000 0000</span></a></div>",
+      "css": ".ds-rail{display:inline-flex;flex-direction:column;gap:1px;border-radius:10px 0 0 10px;box-shadow:0 12px 36px rgba(10,15,30,0.18);}.ds-rail-item{position:relative;display:flex;align-items:center;justify-content:center;width:54px;height:54px;background:var(--bg-navy,#003D7A);color:#fff;text-decoration:none;transition:background 150ms cubic-bezier(0.2,0.8,0.2,1),color 150ms cubic-bezier(0.2,0.8,0.2,1);}.ds-rail-item:first-child{border-top-left-radius:10px;}.ds-rail-item:last-child{border-bottom-left-radius:10px;}.ds-rail-item::before{content:\"\";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent-gold,#FFC107);transform:scaleY(0);transition:transform 150ms cubic-bezier(0.2,0.8,0.2,1);}.ds-rail-item:hover::before,.ds-rail-item:focus-visible::before{transform:scaleY(1);}.ds-rail-item:hover,.ds-rail-item:focus-visible{background:#0b2a52;color:var(--accent-gold,#FFC107);}.ds-rail-ico svg{width:22px;height:22px;display:block;}.ds-rail-pop{position:absolute;right:100%;top:0;height:54px;display:flex;align-items:center;margin-right:6px;padding:0 18px;background:var(--bg-navy,#003D7A);color:#fff;white-space:nowrap;font-family:var(--font-body,'IBM Plex Sans',system-ui,sans-serif);font-size:14px;font-weight:500;border-radius:8px;border-left:3px solid var(--accent-gold,#FFC107);box-shadow:0 12px 28px rgba(10,15,30,0.18);opacity:0;visibility:hidden;transform:translateX(8px);transition:opacity 150ms cubic-bezier(0.2,0.8,0.2,1),transform 150ms cubic-bezier(0.2,0.8,0.2,1),visibility 150ms;pointer-events:none;}.ds-rail-item:hover .ds-rail-pop,.ds-rail-item:focus-visible .ds-rail-pop{opacity:1;visibility:visible;transform:translateX(0);}"
+    },
+    {
+      "name": "Language Switcher",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Mono trigger opening a 10px-radius menu. The current locale is marked with a 6px gold dot, not a checkmark.",
+      "html": "<div class=\"ds-lang\"><button class=\"ds-lang-btn\" type=\"button\" aria-expanded=\"true\">En<svg class=\"ds-lang-chev\" width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" aria-hidden=\"true\"><path d=\"M2.5 4.5 6 8 9.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button><ul class=\"ds-lang-menu\"><li><a class=\"ds-lang-opt\" href=\"#\" aria-current=\"page\">En</a></li><li><a class=\"ds-lang-opt\" href=\"#\">中文</a></li></ul></div>",
+      "css": ".ds-lang{position:relative;display:inline-block;}.ds-lang-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 14px;background:#fff;border:1px solid var(--border-line,#E5E7EB);border-radius:8px;font-family:var(--font-mono,'IBM Plex Mono',ui-monospace,monospace);font-size:13px;font-weight:500;color:var(--bg-navy,#003D7A);cursor:pointer;box-shadow:0 8px 24px rgba(10,15,30,0.08);border-color:var(--bg-navy,#003D7A);}.ds-lang-chev{flex-shrink:0;opacity:0.55;transform:rotate(180deg);}.ds-lang-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:168px;margin:0;padding:6px;list-style:none;background:#fff;border:1px solid var(--border-line,#E5E7EB);border-radius:10px;box-shadow:0 16px 40px rgba(10,15,30,0.12);}.ds-lang-opt{display:flex;align-items:center;min-height:44px;padding:0 14px;border-radius:6px;font-family:var(--font-body,'IBM Plex Sans',system-ui,sans-serif);font-size:14px;font-weight:500;color:var(--text-muted,#6B7280);text-decoration:none;transition:background 150ms cubic-bezier(0.2,0.8,0.2,1),color 150ms cubic-bezier(0.2,0.8,0.2,1);}.ds-lang-opt:hover{background:var(--bg-soft,#F7F8FA);color:var(--bg-navy,#003D7A);}.ds-lang-opt[aria-current=\"page\"]{background:var(--bg-soft,#F7F8FA);color:var(--bg-navy,#003D7A);font-weight:600;}.ds-lang-opt[aria-current=\"page\"]::after{content:\"\";margin-left:auto;width:6px;height:6px;border-radius:50%;background:var(--accent-gold,#FFC107);}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Hong Kong Trade Desk",
+    "overview": "This is the desk of a Hong Kong trading house rendered as a website: white paper as the default ground, navy as the ink and the institutional mass, and a single gold thread that marks where the document is organised. It is not a SaaS landing page and not a machinery catalogue. A procurement engineer arriving with a part number should feel they have reached a counter that keeps records, not a funnel that keeps leads.\n\nThe system runs on restraint with one authored exception per screen. Sections breathe (96px of vertical air at desktop) while the content inside them stays dense and factual. Colour is budgeted rather than composed: roughly 70% white, 25% navy, 4% gold, 1% red, and the red appears on exactly one button per view. The serif carries authority, the sans carries information, the mono carries anything a buyer would copy.\n\nTwo things separate the implemented system from the original brand bible, and both are deliberate. First, form language: the bible demanded razor corners everywhere, but the shipped interface uses soft corners and light shadows on anything that floats, hovers, or is pressed. Second, the section label: the bible forbade gold as a fill, but the client asked for a solid gold block behind section labels, and the client's request wins.",
+    "keyCharacteristics": [
+      "White-first surface; navy is mass, never a mood",
+      "Gold is a thread and a marker, never a mood either — one exception",
+      "Exactly one red button per view; red has no second job",
+      "Content sits on sharp-cornered cards; interface chrome is soft-cornered",
+      "Serif for authority, sans for information, mono for anything copyable",
+      "Bilingual by construction: every face chains IBM Plex Sans SC for 简体中文"
+    ],
+    "rules": [
+      {
+        "name": "The One Red Rule",
+        "body": "Exactly one #DC2626 button exists per view. A second red button is not an emphasis decision, it is a bug: demote it to secondary (navy outline) or to a link.",
+        "section": "colors"
+      },
+      {
+        "name": "The Gold Thread Rule",
+        "body": "Gold is a 1px rule, a 3px marker, a dot, or 11px letter-spaced type. It fills exactly one thing — the section label block — because the client asked for it. Any other gold fill is out of system.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tint-Don't-Grey Rule",
+        "body": "Secondary text on navy is white at 70%, not grey. Secondary text on white is #6B7280. Never move a grey across grounds.",
+        "section": "colors"
+      },
+      {
+        "name": "The Copyable-Is-Mono Rule",
+        "body": "If a buyer might select it and paste it into an email — part number, phone, email, reference, registration number — it is IBM Plex Mono. If they would only read it, it is not.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Weight Per Role Rule",
+        "body": "Each role owns one weight. Do not bold a word inside body copy for emphasis, do not colour a word, do not italicise. Emphasis is a different role or a different line.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ruled-Paper Rule",
+        "body": "Sections are separated by a 1px Rule Grey border, not by empty space alone. The border is what makes a long scroll read as a document.",
+        "section": "layout"
+      },
+      {
+        "name": "The Reachable-Contact Rule",
+        "body": "Contact is never more than one gesture away at any width: header contacts at desktop, the fixed side rail above 980px, the burger menu below 768px, the footer everywhere. A layout change that removes a contact path without adding another is a regression.",
+        "section": "layout"
+      },
+      {
+        "name": "The Float-Earns-Shadow Rule",
+        "body": "A shadow is permission to leave the page, not decoration. If the element is in the flow, it gets a border and a 4px lift instead.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Grey-Black Rule",
+        "body": "Every shadow tints from rgba(10,15,30, α). Pure black shadows are out of system.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Sharp Content, Soft Chrome Rule",
+        "body": "If it holds the product's information, it has square corners. If it is a control, an overlay, or something that floats, it may round. When in doubt, the element is content.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Three-Step Rule (new work only)",
+        "body": "New components pick from 0, 8px, or pill. The 6 / 10 / 12 / 14px steps are legalised history, not an invitation — they stay where they are and nothing needs rework, but a new component reaching for a fourth radius is drifting.",
+        "section": "shapes"
+      },
+      {
+        "name": "The One Curve Rule",
+        "body": "There is a single easing curve in this system. A new component that needs a different curve is asking for a different system.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do budget colour before composing it: ~70% white, ~25% navy, ~4% gold, ~1% red.",
+      "Do give every interactive content surface the same signal — 1px border to Trade Navy plus a 4px lift over 200ms.",
+      "Do use Document Gold (#B8860B) for gold type on white and Signal Gold (#FFC107) for gold type on navy. The two are not interchangeable.",
+      "Do set part numbers, phones, emails, references, and step numbers in IBM Plex Mono.",
+      "Do keep the section header exactly as built: gold block, 24px gold rule, serif lede beneath.",
+      "Do chain 'IBM Plex Sans SC' into any new font stack, or 简体中文 will break to a system face.",
+      "Do close every section with a 1px Rule Grey border."
+    ],
+    "donts": [
+      "Don't put a second red button in a view.",
+      "Don't fill anything with gold except the section label block.",
+      "Don't add a shadow to an element that sits in the page flow; borders and lift carry content depth.",
+      "Don't introduce a radius outside 0, 8px, or pill in new components.",
+      "Don't grey out secondary text on navy — tint it from white at 70%.",
+      "Don't bold, colour, or italicise individual words for emphasis.",
+      "Don't use a neutral-black shadow; every shadow tints from rgba(10,15,30, α).",
+      "Don't remove a contact path at any breakpoint without replacing it with another."
+    ]
+  }
+}
