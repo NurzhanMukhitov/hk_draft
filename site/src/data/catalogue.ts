@@ -15,19 +15,18 @@ export interface Category {
   id: string;
   en: string;
   zh: string;
-  count: number;
   img: string;
 }
 
 export const CATEGORIES: Category[] = [
-  { id: 'plc',     en: 'PLC & Controllers',       zh: 'PLC 与控制器',   count: 412, img: asset('/images/categories/01_plc_controllers.jpeg') },
-  { id: 'servo',   en: 'Servo Motors & Drives',   zh: '伺服电机与驱动', count: 386, img: asset('/images/categories/02_servo_drives.jpeg') },
-  { id: 'sensors', en: 'Sensors & Switches',      zh: '传感器与开关',   count: 524, img: asset('/images/categories/03_sensors_switches.jpeg') },
-  { id: 'hmi',     en: 'HMI & Panels',            zh: 'HMI 与面板',     count: 198, img: asset('/images/categories/04_hmi_panels.jpeg') },
-  { id: 'power',   en: 'Power Supplies',          zh: '电源',           count: 267, img: asset('/images/categories/05_power_supplies.jpeg') },
-  { id: 'robots',  en: 'Industrial Robots',       zh: '工业机器人',     count: 142, img: asset('/images/categories/06_industrial_robots.jpeg') },
-  { id: 'cnc',     en: 'CNC Components',          zh: 'CNC 组件',       count: 231, img: asset('/images/categories/07_cnc_components.jpeg') },
-  { id: 'spares',  en: 'Automation Spare Parts',  zh: '自动化备件',     count: 689, img: asset('/images/categories/08_spare_parts.jpeg') },
+  { id: 'plc',     en: 'PLC & Controllers',       zh: 'PLC 与控制器',   img: asset('/images/categories/01_plc_controllers.jpeg') },
+  { id: 'servo',   en: 'Servo Motors & Drives',   zh: '伺服电机与驱动', img: asset('/images/categories/02_servo_drives.jpeg') },
+  { id: 'sensors', en: 'Sensors & Switches',      zh: '传感器与开关',   img: asset('/images/categories/03_sensors_switches.jpeg') },
+  { id: 'hmi',     en: 'HMI & Panels',            zh: 'HMI 与面板',     img: asset('/images/categories/04_hmi_panels.jpeg') },
+  { id: 'power',   en: 'Power Supplies',          zh: '电源',           img: asset('/images/categories/05_power_supplies.jpeg') },
+  { id: 'robots',  en: 'Industrial Robots',       zh: '工业机器人',     img: asset('/images/categories/06_industrial_robots.jpeg') },
+  { id: 'cnc',     en: 'CNC Components',          zh: 'CNC 组件',       img: asset('/images/categories/07_cnc_components.jpeg') },
+  { id: 'spares',  en: 'Automation Spare Parts',  zh: '自动化备件',     img: asset('/images/categories/08_spare_parts.jpeg') },
 ];
 
 export interface Industry {
@@ -61,7 +60,7 @@ export interface Step {
 export const STEPS: Step[] = [
   { no: '01', en: 'Send your request',       zh: '发送您的需求', enSub: 'Part number, brand, model — or a full BOM.',  zhSub: '零件号、品牌、型号，或完整物料清单。' },
   { no: '02', en: 'We source globally',      zh: '全球采购',     enSub: 'Confirmed against the original brand catalogue.', zhSub: '与原厂品牌目录核对确认。' },
-  { no: '03', en: 'We provide quotation',    zh: '提供报价',     enSub: 'Priced, with lead time, within 120 hours.',       zhSub: '含交期，120 小时内报价。' },
+  { no: '03', en: 'We provide quotation',    zh: '提供报价',     enSub: 'Priced, with lead time confirmed.',               zhSub: '提供含交期的确认报价。' },
   { no: '04', en: 'Fast delivery worldwide', zh: '全球快速交付', enSub: 'Air, sea or express from the Hong Kong desk.',    zhSub: '由香港中心空运、海运或快递发货。' },
 ];
 

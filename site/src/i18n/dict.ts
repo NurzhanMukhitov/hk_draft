@@ -7,7 +7,7 @@ export type Locale = 'en' | 'zh-CN';
 /* ── Header / Footer / shared ── */
 export const shared = {
   en: {
-    strip: ['Hong Kong', 'Industrial supply', 'Est. 2020'],
+    strip: ['Hong Kong', 'Industrial supply'],
     nav: {
       brands: 'Brands',
       categories: 'Categories',
@@ -21,18 +21,18 @@ export const shared = {
       zh: '中文',
     },
     footer: {
-      tag: 'Original parts from 1,000+ global brands.<br>One Hong Kong desk.',
+      tag: 'Original parts from global brands.<br>One Hong Kong desk.',
       brands: 'Brands',
       cats: 'Categories',
       contact: 'Contact',
       catList: ['PLC & Controllers', 'Servo Motors & Drives', 'Sensors & Switches', 'HMI & Panels'],
-      more: '1,000+ more',
+      more: 'Full catalogue on request',
       contactList: ['Mong Kok, Kowloon', '+852 0000 0000', 'sales@example.hk', 'WhatsApp · WeChat'],
       reg: '© 2026. HK Business Registration in good standing.',
     },
   },
   'zh-CN': {
-    strip: ['香港', '工业供应', '创立于 2020'],
+    strip: ['香港', '工业供应'],
     nav: {
       brands: '品牌',
       categories: '分类',
@@ -46,12 +46,12 @@ export const shared = {
       zh: '中文',
     },
     footer: {
-      tag: '原厂零件，覆盖 1,000+ 全球品牌。<br>香港一站采购。',
+      tag: '原厂零件，来自全球品牌。<br>香港一站采购。',
       brands: '品牌',
       cats: '分类',
       contact: '联系',
       catList: ['PLC 与控制器', '伺服电机与驱动', '传感器与开关', 'HMI 与面板'],
-      more: '1,000+ 更多',
+      more: '完整目录可索取',
       contactList: ['九龙旺角', '+852 0000 0000', 'sales@example.hk', 'WhatsApp · WeChat'],
       reg: '© 2026。香港商业登记良好。',
     },
@@ -68,11 +68,6 @@ export const home = {
       lede: 'We supply original and replacement industrial equipment and spare parts from leading global brands.',
       cta: 'Request a part number',
       sec: 'View brand list',
-      stats: [
-        { num: '1,000+', cap: 'Global brands' },
-        { num: '120 hrs', cap: 'Quote window' },
-        { num: '12', cap: 'Anchor brands' },
-      ],
     },
     categories: {
       label: 'Categories',
@@ -82,9 +77,8 @@ export const home = {
     },
     brandWall: {
       label: 'Brands we supply',
-      title: '12 anchor brands. 1,000+ supply chain.',
-      more: 'and 1,000+ more —',
-      reqBrand: 'request a brand',
+      title: 'Anchor brands. Wider supply chain.',
+      more: 'Brand not on this list — we source it too.',
     },
     industries: {
       label: 'Applications',
@@ -111,11 +105,6 @@ export const home = {
       lede: '我们供应来自全球领先品牌的原厂及替代工业设备与备件。',
       cta: '提交零件号',
       sec: '查看品牌列表',
-      stats: [
-        { num: '1,000+', cap: '全球品牌' },
-        { num: '120 hrs', cap: '报价周期' },
-        { num: '12', cap: '核心品牌' },
-      ],
     },
     categories: {
       label: '分类',
@@ -125,9 +114,8 @@ export const home = {
     },
     brandWall: {
       label: '我们供应的品牌',
-      title: '12 个核心品牌。1,000+ 供应链。',
-      more: '以及 1,000+ 更多 —',
-      reqBrand: '申请品牌',
+      title: '核心品牌。更广的供应链。',
+      more: '未列出的品牌，我们同样可以采购。',
     },
     industries: {
       label: '应用领域',

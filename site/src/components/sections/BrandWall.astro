@@ -14,7 +14,6 @@ interface Props {
 }
 const { locale } = Astro.props;
 const t = home[locale].brandWall;
-const reqHref = 'mailto:sales@example.hk';
 ---
 
 <section class="section soft" id="brand-wall">
@@ -32,8 +31,6 @@ const reqHref = 'mailto:sales@example.hk';
         </div>
       ))}
     </div>
-    <p class="brand-more" data-reveal>
-      {t.more} <a href={reqHref}>{t.reqBrand}</a>
-    </p>
+    <p class="brand-more" data-reveal>{t.more}</p>
   </div>
 </section>
