@@ -128,6 +128,7 @@ a{color:inherit;text-decoration:none;}
 /* real imagery fills the slots */
 .imgslot{overflow:hidden;}
 .imgslot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--dur-component) var(--ease);}
+.ind-card:hover .imgslot img{transform:scale(1.04);}
 
 /* ── Brand wall (logo-ready cells: a slot per brand, wordmark fallback) ── */
 .brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-5);}
@@ -287,6 +288,7 @@ a{color:inherit;text-decoration:none;}
 .sc-qr-img{width:118px;height:118px;display:block;border-radius:8px;background:#fff;}
 
 @media (max-width:980px){
+  .ind-grid,.how-grid,.brand-grid{grid-template-columns:repeat(2,1fr);}
   .side-contact{display:none;}
   .section{padding:var(--space-8) 0;}
   .cta-band .wrap{flex-direction:column;align-items:flex-start;}
