@@ -14,6 +14,21 @@ interface Props {
 }
 const { locale, title, description } = Astro.props;
 const htmlLang = locale === 'zh-CN' ? 'zh-Hans' : 'en';
+
+/* Absolute URLs are built from the configured site root rather than from `base`,
+   so they stay correct whether the build runs locally or under /hk_draft. */
+const root = new URL(
+  (Astro.site?.href ?? 'https://nurzhanmukhitov.github.io/hk_draft/').replace(/\/?$/, '/')
+);
+const abs = (path: string) => new URL(path.replace(/^\//, ''), root).href;
+
+const urlEn = abs('');
+const urlZh = abs('zh-cn');
+const canonical = locale === 'zh-CN' ? urlZh : urlEn;
+const ogImage = abs(locale === 'zh-CN' ? 'images/og-zh.jpg' : 'images/og-en.jpg');
+const ogImageAlt = locale === 'zh-CN'
+  ? '香港港口夜景与全球多品牌工业供应字样'
+  : 'Hong Kong container port at night, with the words Global Multi-Brand Industrial Supply';
 ---
 
 <!doctype html>
@@ -29,10 +44,23 @@ const htmlLang = locale === 'zh-CN' ? 'zh-Hans' : 'en';
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href={asset('/favicon.svg')} />
+    <link rel="canonical" href={canonical} />
+    <!-- The two languages are the same page; without these a search engine can
+         serve the wrong one to the wrong reader. -->
+    <link rel="alternate" hreflang="en" href={urlEn} />
+    <link rel="alternate" hreflang="zh-Hans" href={urlZh} />
+    <link rel="alternate" hreflang="x-default" href={urlEn} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={locale === 'zh-CN' ? 'zh_CN' : 'en_US'} />
+    <meta property="og:locale:alternate" content={locale === 'zh-CN' ? 'en_US' : 'zh_CN'} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <Header locale={locale} />

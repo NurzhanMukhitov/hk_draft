@@ -335,14 +335,16 @@ them are tinted from the same cool navy-black (`rgba(10,15,30,...)`) rather than
 neutral black. There are five, and the list is closed.
 
 ### Shadow Vocabulary
-- **Menu lift** (`0 16px 40px rgba(10,15,30,0.12)`): the open language dropdown.
-- **Sheet lift** (`0 16px 32px rgba(10,15,30,0.10)`): the mobile navigation panel.
-- **Rail lift** (`0 12px 36px rgba(10,15,30,0.18)`): the fixed side contact rail and
+Each one is a CSS custom property; use the token, never the literal.
+
+- **Menu lift** (`--shadow-menu`, `0 16px 40px rgba(10,15,30,0.12)`): the open language dropdown.
+- **Sheet lift** (`--shadow-sheet`, `0 16px 32px rgba(10,15,30,0.10)`): the mobile navigation panel.
+- **Rail lift** (`--shadow-rail`, `0 12px 36px rgba(10,15,30,0.18)`): the fixed side contact rail and
   its hover labels. The heaviest shadow in the system, because it is the only element
   permanently detached from the page.
-- **Focus lift** (`0 8px 24px rgba(10,15,30,0.08)`): the language button while its
+- **Focus lift** (`--shadow-focus`, `0 8px 24px rgba(10,15,30,0.08)`): the language button while its
   menu is open.
-- **Card hover** (`0 14px 36px rgba(10,15,30,0.08)`): industry grid cards on hover —
+- **Card hover** (`--shadow-card-hover`, `0 14px 36px rgba(10,15,30,0.08)`): industry grid cards on hover —
   the single exception to the no-shadow-on-content rule.
 
 ### Named Rules
@@ -351,6 +353,10 @@ decoration. If the element is in the flow, it gets a border and a 4px lift inste
 
 **The One Grey-Black Rule.** Every shadow tints from `rgba(10,15,30, α)`. Pure black
 shadows are out of system.
+
+**The Five-Shadow Rule.** The vocabulary above is closed and lives in tokens. A sixth
+box-shadow written as a literal is drift, not a new idea — reach for the token whose
+role matches, or argue for a sixth role first.
 
 ## Shapes
 
@@ -452,9 +458,11 @@ replaced by the burger menu's contact block, never simply removed.
   Gold, body in white at 70%, and a mono 9px registration line closing the page.
 
 ### Motion
-One curve, `cubic-bezier(0.2, 0.8, 0.2, 1)`, and three durations: 150ms for colour
-shifts, 200ms for card lifts and image scales, 300ms for the rail and page-level
-moves. Entrances are a separate, slower grammar: content rises 28px over 650ms
+One curve, `cubic-bezier(0.2, 0.8, 0.2, 1)` (`--ease`), and three durations:
+150ms for colour shifts (`--dur-micro`), 200ms for card lifts and image scales
+(`--dur-component`), 300ms for the rail and page-level moves (`--dur-page`). Three
+longer ones name the set pieces: `--dur-reveal` (650ms), `--dur-slide` (450ms) and
+`--dur-marquee` (48s). Entrances are a separate, slower grammar: content rises 28px over 650ms
 ease-out as it enters the viewport, staggered 50–60ms per item, with the how-it-works
 steps animating their number, rule, title, and body in sequence. The industries band
 runs a 48s linear marquee that pauses on hover. `prefers-reduced-motion: reduce` kills

@@ -306,49 +306,58 @@
       {
         "name": "menu-lift",
         "value": "0 16px 40px rgba(10,15,30,0.12)",
-        "purpose": "Open language dropdown."
+        "purpose": "Open language dropdown.",
+        "token": "--shadow-menu"
       },
       {
         "name": "sheet-lift",
         "value": "0 16px 32px rgba(10,15,30,0.10)",
-        "purpose": "Mobile navigation panel."
+        "purpose": "Mobile navigation panel.",
+        "token": "--shadow-sheet"
       },
       {
         "name": "rail-lift",
         "value": "0 12px 36px rgba(10,15,30,0.18)",
-        "purpose": "Fixed side contact rail and its hover labels. Heaviest shadow in the system."
+        "purpose": "Fixed side contact rail and its hover labels. Heaviest shadow in the system.",
+        "token": "--shadow-rail"
       },
       {
         "name": "focus-lift",
         "value": "0 8px 24px rgba(10,15,30,0.08)",
-        "purpose": "Language button while its menu is open."
+        "purpose": "Language button while its menu is open.",
+        "token": "--shadow-focus"
       },
       {
         "name": "card-hover",
         "value": "0 14px 36px rgba(10,15,30,0.08)",
-        "purpose": "Industry grid card on hover — the only shadow allowed on content."
+        "purpose": "Industry grid card on hover — the only shadow allowed on content.",
+        "token": "--shadow-card-hover"
       }
     ],
     "motion": [
       {
         "name": "ease",
         "value": "cubic-bezier(0.2,0.8,0.2,1)",
-        "purpose": "The single easing curve in the system."
+        "purpose": "The single easing curve in the system.",
+        "token": "--ease"
       },
       {
         "name": "dur-micro",
         "value": "150ms",
-        "purpose": "Colour and border shifts, button hover."
+        "purpose": "Colour and border shifts, button hover.",
+        "token": "--dur-micro"
       },
       {
         "name": "dur-component",
         "value": "200ms",
-        "purpose": "Card lift, image scale, focus transition."
+        "purpose": "Card lift, image scale, focus transition.",
+        "token": "--dur-component"
       },
       {
         "name": "dur-page",
         "value": "300ms",
-        "purpose": "Side rail entrance and page-level moves."
+        "purpose": "Side rail entrance and page-level moves.",
+        "token": "--dur-page"
       },
       {
         "name": "reveal",
@@ -545,6 +554,11 @@
         "name": "The One Curve Rule",
         "body": "There is a single easing curve in this system. A new component that needs a different curve is asking for a different system.",
         "section": "components"
+      },
+      {
+        "name": "The Five-Shadow Rule",
+        "body": "The shadow vocabulary is closed and lives in tokens. A sixth box-shadow written as a literal is drift, not a new idea — reach for the token whose role matches, or argue for a sixth role first.",
+        "section": "elevation"
       }
     ],
     "dos": [

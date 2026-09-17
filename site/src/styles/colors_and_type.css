@@ -32,6 +32,11 @@
   --cta-red-hover:#B91C1C;
   --cta-red-active:#991B1B;
 
+  /* ── Disabled ── */
+  --text-disabled:#9CA3AF;        /* disabled labels, placeholder slots        */
+  --bg-hatch:#EEF1F5;             /* diagonal hatch behind a missing photo     */
+  --bg-navy-hover:#0B2A52;        /* pressed state of a navy tile              */
+
   /* ── Border ── */
   --border-line:#E5E7EB;
   --border-line-on-navy:rgba(255,255,255,0.10);
@@ -76,11 +81,26 @@
   --radius-sm:2px;   /* very rare */
   --radius-md:4px;   /* chips only */
 
+  /* ── Elevation — a closed set. Only things that float above the page get one,
+     and every one tints from the same cool navy-black, never neutral. ── */
+  --shadow-menu:0 16px 40px rgba(10,15,30,0.12);        /* open dropdown        */
+  --shadow-sheet:0 16px 32px rgba(10,15,30,0.10);       /* mobile nav panel     */
+  --shadow-rail:0 12px 36px rgba(10,15,30,0.18);        /* fixed contact rail   */
+  --shadow-focus:0 8px 24px rgba(10,15,30,0.08);        /* control while open   */
+  --shadow-card-hover:0 14px 36px rgba(10,15,30,0.08);  /* the one card that lifts */
+
+  /* ── Scrim — darkens a photograph under text. Deliberately its own navy,
+     cooler than the brand navy, so the photo keeps its colour. ── */
+  --scrim-slide:linear-gradient(to top,rgba(10,22,46,0.94) 0%,rgba(10,22,46,0.55) 34%,rgba(10,22,46,0) 64%);
+
   /* ── Motion — one curve, short, no bounce ── */
   --ease:cubic-bezier(0.2,0.8,0.2,1);
   --dur-micro:150ms;       /* button hover, color shift */
   --dur-component:200ms;   /* card lift, focus transition */
   --dur-page:300ms;        /* page transition */
+  --dur-reveal:650ms;      /* section rising into view on scroll */
+  --dur-slide:450ms;       /* hero cross-fade */
+  --dur-marquee:48s;       /* one full pass of the applications band */
 }
 
 /* ============================================================

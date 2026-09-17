@@ -37,6 +37,11 @@ GROUPS = [
     ('global_supply_last.jpg', 1400, 80),  # ~700px column, multiply blend
 ]
 
+# Link previews. WhatsApp and WeChat want a 1.91:1 JPEG at an absolute URL, so
+# these are cut from the first hero frame of each language: resized by height and
+# cropped from the left, which is the side that carries the headline.
+OG = [('hero/hero_01.jpeg', 'og-en.jpg'), ('hero/hero_01_zh.png', 'og-zh.jpg')]
+
 # Copied byte for byte, not transcoded. The WeChat QR is 700px of flat black on
 # white: PNG already beats every WebP setting here, and re-encoding a QR is how
 # you end up with modules a phone camera cannot resolve.
@@ -59,6 +64,14 @@ def main():
             b, a = src.stat().st_size, dst.stat().st_size
             before, after, built = before + b, after + a, built + 1
             print(f'  {str(src.relative_to(SRC)):<34} {b/1024:7.0f} KB → {a/1024:6.0f} KB')
+    for src_name, out_name in OG:
+        src, dst = SRC / src_name, OUT / out_name
+        subprocess.run(['magick', str(src), '-resize', 'x630', '-gravity', 'West',
+                        '-crop', '1200x630+0+0', '+repage', '-quality', '82',
+                        '-strip', str(dst)], check=True)
+        before, after, built = before + src.stat().st_size, after + dst.stat().st_size, built + 1
+        print(f'  {out_name:<34} {src.stat().st_size/1024:7.0f} KB → {dst.stat().st_size/1024:6.0f} KB  (link preview)')
+
     for name in COPY:
         src, dst = SRC / name, OUT / name
         dst.write_bytes(src.read_bytes())
@@ -68,7 +81,8 @@ def main():
     unused = sorted(p.relative_to(SRC) for p in SRC.rglob('*')
                     if p.is_file() and p.suffix.lower() in {'.jpg', '.jpeg', '.png'}
                     and not (OUT / p.relative_to(SRC).with_suffix('.webp')).exists()
-                    and str(p.relative_to(SRC)) not in COPY)
+                    and str(p.relative_to(SRC)) not in COPY
+                    and str(p.relative_to(SRC)) not in {o[0] for o in OG})
     print(f'\nbuilt {built} images: {before/1048576:.1f} MB → {after/1024:.0f} KB '
           f'({100 - after / before * 100:.1f}% smaller)')
     if unused:
