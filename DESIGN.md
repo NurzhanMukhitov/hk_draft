@@ -12,7 +12,7 @@ colors:
   text-on-navy: "#FFFFFF"
   text-on-navy-secondary: "rgba(255,255,255,0.70)"
   gold: "#FFC107"
-  gold-on-light: "#B8860B"
+  gold-on-light: "#8A6508"
   gold-hover: "#E0A800"
   cta-red: "#DC2626"
   cta-red-hover: "#B91C1C"
@@ -204,9 +204,11 @@ that exists only to be pressed.
   1px hairline above the footer and below the hero, the active carousel dot, the
   breadcrumb separator, the focus ring, the 3px reveal bar on the contact rail, and
   the fill behind section labels. It never fills a button, a card, or a band.
-- **Document Gold** (`#B8860B`): the same idea at text size on white. Gold at 11px on
-  paper fails contrast, so every eyebrow, field label, and column heading on a light
-  ground uses this darker gold instead. On navy, revert to Signal Gold.
+- **Document Gold** (`#8A6508`): the same idea at text size on white. Signal Gold at
+  11px on paper fails contrast badly, so every eyebrow, field label, and column
+  heading on a light ground uses this darker gold instead — 5.3:1 on white and 5.0:1
+  on Soft Paper, which clears WCAG AA for body text. On navy, revert to Signal Gold.
+  An earlier value, `#B8860B`, only reached 3.2:1 and was replaced on 2026-09-17.
 - **Gold Hover** (`#E0A800`): rare; only for a gold element that is itself
   interactive.
 
@@ -238,6 +240,10 @@ outline) or to a link.
 **The Gold Thread Rule.** Gold is a 1px rule, a 3px marker, a dot, or 11px letter-
 spaced type. It fills exactly one thing — the section label block — because the client
 asked for it. Any other gold fill is out of system.
+
+**The Measured-Gold Rule.** Gold type is checked against its ground, never eyeballed.
+Signal Gold (`#FFC107`) is for navy; Document Gold (`#8A6508`) is for paper. A new gold
+that has not been measured at 4.5:1 for its own background is not in the system.
 
 **The Tint-Don't-Grey Rule.** Secondary text on navy is white at 70%, not grey. Secondary
 text on white is `#6B7280`. Never move a grey across grounds.
@@ -463,8 +469,9 @@ that needs a different curve is asking for a different system.
 - **Do** budget colour before composing it: ~70% white, ~25% navy, ~4% gold, ~1% red.
 - **Do** give every interactive content surface the same signal — 1px border to Trade
   Navy plus a 4px lift over 200ms.
-- **Do** use Document Gold (`#B8860B`) for gold type on white and Signal Gold
-  (`#FFC107`) for gold type on navy. The two are not interchangeable.
+- **Do** use Document Gold (`#8A6508`) for gold type on white and Signal Gold
+  (`#FFC107`) for gold type on navy. The two are not interchangeable, and neither
+  swaps grounds: Signal Gold on paper fails contrast, Document Gold on navy vanishes.
 - **Do** set part numbers, phones, emails, references, and step numbers in IBM Plex
   Mono.
 - **Do** keep the section header exactly as built: gold block, 24px gold rule, serif

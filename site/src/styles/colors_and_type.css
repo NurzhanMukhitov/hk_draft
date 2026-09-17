@@ -24,7 +24,7 @@
 
   /* ── Accent (gold ≈ 4%, rules + eyebrows ONLY, never a fill) ── */
   --accent-gold:#FFC107;          /* canonical — on navy             */
-  --accent-gold-on-light:#B8860B; /* contrast variant — eyebrows on light */
+  --accent-gold-on-light:#8A6508; /* eyebrows on light — 5.3:1 on white, 5.0:1 on --bg-soft */
   --accent-gold-hover:#E0A800;    /* rare hover for gold elements    */
 
   /* ── CTA (red ≈ 1%, exactly ONE button per view) ── */

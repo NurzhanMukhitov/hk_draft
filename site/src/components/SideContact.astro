@@ -31,7 +31,7 @@ const qrSrc = asset(`/images/${QR_FILE}`);
     <span class="sc-pop">{email}</span>
   </a>
 
-  <div class="sc-item sc-wechat" tabindex="0" aria-label="WeChat">
+  <button type="button" class="sc-item sc-wechat" aria-label="WeChat" aria-expanded="false" data-wechat>
     <span class="sc-ico" set:html={'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.69 4C4.98 4 2 6.46 2 9.5c0 1.73.97 3.27 2.49 4.29L4 16l2.2-1.1c.45.12.92.2 1.4.24-.06-.3-.1-.6-.1-.91 0-2.86 2.7-5.13 6-5.13.22 0 .43.01.64.03C13.7 6.06 11.42 4 8.69 4zm-2.2 3.2a.86.86 0 1 1 0 1.72.86.86 0 0 1 0-1.72zm4.4 0a.86.86 0 1 1 0 1.72.86.86 0 0 1 0-1.72z"/><path d="M22 14.23c0-2.5-2.46-4.53-5.5-4.53s-5.5 2.03-5.5 4.53 2.46 4.53 5.5 4.53c.6 0 1.18-.08 1.72-.23L20 19.7l-.46-1.5C21.06 17.34 22 15.88 22 14.23zm-7.3-1.1a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4zm3.6 0a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4z"/></svg>'} />
     <div class="sc-pop sc-pop--qr">
       <span class="sc-qr-title">{wechatLabel}</span>
@@ -39,10 +39,23 @@ const qrSrc = asset(`/images/${QR_FILE}`);
         ? <img class="sc-qr-img" src={qrSrc} alt={isEN ? 'WeChat QR code' : '微信二维码'} width="118" height="118" loading="lazy" />
         : <span class="sc-qr" aria-hidden="true">QR</span>}
     </div>
-  </div>
+  </button>
 </aside>
 
 <script>
+  /* The QR panel opens on hover for a pointer and on click for everyone else;
+     aria-expanded keeps the state announced either way. */
+  const wechat = document.querySelector('[data-wechat]');
+  if (wechat) {
+    const set = (open) => {
+      wechat.classList.toggle('is-open', open);
+      wechat.setAttribute('aria-expanded', String(open));
+    };
+    wechat.addEventListener('click', () => set(wechat.getAttribute('aria-expanded') !== 'true'));
+    wechat.addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
+    wechat.addEventListener('blur', () => set(false));
+  }
+
   const rail = document.querySelector('[data-side-contact]');
   const hero = document.querySelector('.hero');
   if (rail && hero) {

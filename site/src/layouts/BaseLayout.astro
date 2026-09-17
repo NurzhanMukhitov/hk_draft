@@ -21,6 +21,10 @@ const htmlLang = locale === 'zh-CN' ? 'zh-Hans' : 'en';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Scroll-reveal hides content until it scrolls in, which is only safe while
+         scripting is known to work. This marks the document before first paint;
+         if it never runs, the reveal CSS never applies and everything is visible. -->
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />

@@ -67,13 +67,13 @@
       "gold-on-light": {
         "role": "secondary",
         "displayName": "Document Gold",
-        "canonical": "#B8860B",
+        "canonical": "#8A6508",
         "tonalRamp": [
           "#483504",
-          "#7F5D08",
-          "#B6850B",
-          "#EDAD0E",
-          "#F4C042",
+          "#7F5D07",
+          "#B6860B",
+          "#EEAE0E",
+          "#F4C142",
           "#F7D379",
           "#FAE5B0",
           "#FEF7E7"
@@ -497,6 +497,11 @@
         "section": "colors"
       },
       {
+        "name": "The Measured-Gold Rule",
+        "body": "Gold type is checked against its ground, never eyeballed. Signal Gold (#FFC107) is for navy; Document Gold (#8A6508) is for paper. A new gold that has not been measured at 4.5:1 for its own background is not in the system.",
+        "section": "colors"
+      },
+      {
         "name": "The Copyable-Is-Mono Rule",
         "body": "If a buyer might select it and paste it into an email — part number, phone, email, reference, registration number — it is IBM Plex Mono. If they would only read it, it is not.",
         "section": "typography"
@@ -545,7 +550,7 @@
     "dos": [
       "Do budget colour before composing it: ~70% white, ~25% navy, ~4% gold, ~1% red.",
       "Do give every interactive content surface the same signal — 1px border to Trade Navy plus a 4px lift over 200ms.",
-      "Do use Document Gold (#B8860B) for gold type on white and Signal Gold (#FFC107) for gold type on navy. The two are not interchangeable.",
+      "Do use Document Gold (#8A6508) for gold type on white and Signal Gold (#FFC107) for gold type on navy. The two are not interchangeable.",
       "Do set part numbers, phones, emails, references, and step numbers in IBM Plex Mono.",
       "Do keep the section header exactly as built: gold block, 24px gold rule, serif lede beneath.",
       "Do chain 'IBM Plex Sans SC' into any new font stack, or 简体中文 will break to a system face.",
