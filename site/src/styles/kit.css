@@ -8,19 +8,23 @@ a{color:inherit;text-decoration:none;}
 .wrap{max-width:1280px;margin:0 auto;padding:0 32px;}
 
 /* ── Sticky header — logo center, contacts left ── */
-.site-head{position:sticky;top:0;z-index:40;height:64px;background:#fff;border-bottom:1px solid var(--bg-navy);}
+.site-head{position:sticky;top:0;z-index:40;height:84px;background:#fff;border-bottom:1px solid var(--bg-navy);}
 .site-head .wrap{width:100%;}
-.head-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:var(--space-4);height:64px;}
+.head-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:var(--space-4);height:84px;}
 .head-contacts{display:flex;align-items:center;gap:var(--space-5);justify-self:start;}
 .head-contact{display:inline-flex;align-items:center;min-height:24px;font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:0.02em;color:var(--text-muted);white-space:nowrap;transition:color var(--dur-micro) var(--ease);}
 .head-contact:hover{color:var(--bg-navy);}
-.logo-placeholder{justify-self:center;font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--bg-navy);border:1px solid var(--border-line);padding:10px 20px;border-radius:6px;white-space:nowrap;}
-.logo-placeholder--foot{display:inline-block;margin-bottom:var(--space-4);color:#fff;border-color:var(--border-line-on-navy);}
+/* The wordmark is ~12.5:1, so it is sized by height and the width follows. */
+.site-logo-link{justify-self:center;display:flex;align-items:center;color:var(--bg-navy);}
+.site-logo-link--foot{display:inline-flex;margin-bottom:var(--space-4);color:#fff;}
+/* The mark is square; height is set per context and stepped down with the header. */
+.site-logo{width:auto;display:block;height:52px;}
+.site-logo-link--foot .site-logo{height:46px;}
 .head-right{display:flex;align-items:center;gap:var(--space-4);justify-self:end;}
 
 /* Language dropdown */
 .lang-switch{position:relative;}
-.lang-switch__btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid var(--border-line);border-radius:8px;background:#fff;font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--bg-navy);cursor:pointer;transition:border-color var(--dur-micro) var(--ease),box-shadow var(--dur-micro) var(--ease),background var(--dur-micro) var(--ease);}
+.lang-switch__btn{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;gap:8px;min-height:44px;padding:0 14px;border:1px solid var(--border-line);border-radius:8px;background:#fff;font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--bg-navy);cursor:pointer;transition:border-color var(--dur-micro) var(--ease),box-shadow var(--dur-micro) var(--ease),background var(--dur-micro) var(--ease);}
 .lang-switch__btn:hover{border-color:rgba(10,15,30,0.22);}
 .lang-switch__btn:focus-visible{outline:2px solid var(--accent-gold);outline-offset:2px;}
 .lang-switch.is-open .lang-switch__btn{border-color:var(--bg-navy);box-shadow:var(--shadow-focus);}
@@ -37,7 +41,7 @@ a{color:inherit;text-decoration:none;}
 .nav-toggle span{display:block;width:22px;height:2px;background:var(--bg-navy);margin:0 auto;transition:transform var(--dur-micro) var(--ease),opacity var(--dur-micro) var(--ease);}
 
 /* Mobile nav dropdown */
-.mobile-nav{position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--bg-navy);display:none;flex-direction:column;padding:var(--space-3) 0;box-shadow:var(--shadow-sheet);max-height:calc(100dvh - 64px);overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.mobile-nav{position:absolute;top:84px;left:0;right:0;background:#fff;border-bottom:1px solid var(--bg-navy);display:none;flex-direction:column;padding:var(--space-3) 0;box-shadow:var(--shadow-sheet);max-height:calc(100dvh - 84px);overflow-y:auto;-webkit-overflow-scrolling:touch;}
 .mobile-nav a{font-family:var(--font-body);font-size:16px;color:var(--bg-navy);text-decoration:none;padding:14px 32px;transition:background var(--dur-micro) var(--ease),color var(--dur-micro) var(--ease);}
 .mobile-nav a:hover{background:var(--bg-soft);color:var(--cta-red);}
 .mobile-contacts{display:none;flex-direction:column;gap:2px;padding:var(--space-4) 32px var(--space-3);border-top:1px solid var(--border-line);margin-top:var(--space-2);}
@@ -295,8 +299,11 @@ a{color:inherit;text-decoration:none;}
   .cat-layout{grid-template-columns:1fr;}
   .pd-grid,.quote-grid,.supply-cols{grid-template-columns:1fr;}
   .supply-media{margin-right:0;}
-  .foot-grid{flex-direction:column;align-items:flex-start;gap:var(--space-6);}
-  .foot-contact{text-align:left;}
+  /* One column on a phone reads as a centred block, not as a left-hugged list
+     with a wide empty margin on the right. */
+  .foot-grid{flex-direction:column;align-items:center;gap:var(--space-6);text-align:center;}
+  .foot-contact{text-align:center;}
+  .site-logo-link--foot{justify-content:center;}
 }
 
 @media (max-width:768px){
@@ -305,6 +312,15 @@ a{color:inherit;text-decoration:none;}
   .mobile-nav{top:56px;max-height:calc(100dvh - 56px);}
   .nav-toggle{display:flex;}
   .head-contacts{display:none;}
+  /* Burger left, mark centred, language right. `display:contents` lets the two
+     controls leave their shared box and take grid columns of their own. */
+  .head-right{display:contents;}
+  /* All three need an explicit cell. Column alone is not enough: the burger
+     comes last in the DOM, so the auto-placement cursor has already passed
+     column 1 and drops it onto a second row below the header. */
+  .nav-toggle{grid-column:1;grid-row:1;justify-self:start;}
+  .site-logo-link{grid-column:2;grid-row:1;justify-self:center;}
+  .lang-switch{grid-column:3;grid-row:1;justify-self:end;}
   .mobile-contacts{display:flex;}
   .head-right{gap:var(--space-2);}
   .lang-switch__btn{padding:0 12px;font-size:12px;}
@@ -315,7 +331,16 @@ a{color:inherit;text-decoration:none;}
      so the frame goes taller and crops to its left side, where every slide keeps
      its headline. Verified against all four frames in both languages. */
   .hero-photo{aspect-ratio:16/9;}
-  .hero-slide img{object-position:left center;}
+  /* A positive offset walks the crop rightwards into the photo, which pulls the
+     baked headline leftwards on screen, towards the page gutter. Each frame
+     sets its headline at a different distance from its own left edge, so the
+     offset is tuned per slide against a common target of ~31px. Frame 2 is the
+     exception: its headline sits beside a presenter who occupies the left of
+     the shot, and pulling the type to the gutter would crop her out. */
+  .hero-slide:nth-child(1) img{object-position:3% center;}
+  .hero-slide:nth-child(2) img{object-position:10% center;}
+  .hero-slide:nth-child(3) img{object-position:11% center;}
+  .hero-slide:nth-child(4) img{object-position:22% center;}
   /* The hero is only ~130px tall at phone width; the control cluster tightens
      so it does not own a third of it. Dot targets stay 24px. */
   .hero-controls{bottom:8px;gap:0;padding:2px 6px 2px 2px;}
@@ -336,7 +361,10 @@ a{color:inherit;text-decoration:none;}
 
 @media (max-width:560px){
   .supply-media{display:none;}
-  .logo-placeholder{font-size:10px;letter-spacing:0.12em;padding:8px 12px;max-width:42vw;overflow:hidden;text-overflow:ellipsis;}
+  /* 15px keeps SUPPLY legible; below 360px the header runs out of room for it,
+     so the wordmark steps down rather than pushing the page sideways. */
+  .site-logo{height:32px;}
+  .site-logo-link--foot .site-logo{height:40px;}
   .lang-switch__btn{min-width:44px;padding:0 10px;}
   .nav-toggle{width:44px;height:44px;}
   .ind-slide{flex-basis:78vw;height:360px;}
@@ -352,3 +380,7 @@ a{color:inherit;text-decoration:none;}
   .mobile-nav a{padding:14px 20px;}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;}.carousel--marquee .carousel-track{animation:none;transform:none;}}
+
+@media (max-width:380px){
+  .site-logo{height:28px;}
+}

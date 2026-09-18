@@ -3,6 +3,7 @@
  * Site footer — 4 columns over navy. Gold hairlines top + bottom,
  * muted secondary text on navy.
  */
+import Logo from './Logo.astro';
 import { shared, type Locale } from '../i18n/dict';
 import { localeRoot } from '../lib/paths';
 
@@ -18,7 +19,7 @@ const homeHref = localeRoot(locale);
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="logo-placeholder logo-placeholder--foot" href={homeHref} aria-label={locale === 'en' ? 'Home' : '主页'}>LOGO HERE</a>
+        <a class="site-logo-link site-logo-link--foot" href={homeHref} aria-label={locale === 'en' ? 'Cheng Trading Limited — home' : 'Cheng Trading Limited — 主页'}><Logo on="dark" /></a>
         <p class="tag" set:html={t.tag}></p>
       </div>
       <div class="foot-contact">

@@ -2,6 +2,7 @@
 /**
  * Site header — centered logo placeholder, contacts left, lang + burger right.
  */
+import Logo from './Logo.astro';
 import { shared, type Locale } from '../i18n/dict';
 import { localeRoot, sitePath } from '../lib/paths';
 
@@ -34,7 +35,7 @@ const currentLabel = isEN ? lang.en : lang.zh;
       <a class="head-contact" href={`mailto:${email}`}>{email}</a>
     </div>
 
-    <a class="logo-placeholder" href={base} aria-label={locale === 'en' ? 'Home' : '主页'}>LOGO HERE</a>
+    <a class="site-logo-link" href={base} aria-label={locale === 'en' ? 'Cheng Trading Limited — home' : 'Cheng Trading Limited — 主页'}><Logo /></a>
 
     <div class="head-right">
       <div class="lang-switch" data-lang-switch>
